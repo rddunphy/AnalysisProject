@@ -1,4 +1,4 @@
-package coverage;
+package generator;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.body.ConstructorDeclaration;
@@ -12,7 +12,8 @@ import java.util.Optional;
 public class ProbeInsertionVisitor extends VoidVisitorAdapter {
 
     private void insertProbe(BlockStmt body, String name) {
-        Statement stmt = JavaParser.parseStatement("CoverageLogger.getInstance().addCoveredMethod(\"" + name + "\");");
+        String probe = "CoverageLogger.getInstance().addCoveredMethod(\"" + name + "\");";
+        Statement stmt = JavaParser.parseStatement(probe);
         body.addStatement(0, stmt);
     }
 
@@ -31,4 +32,5 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
         String signature = constructor.getSignature().asString();
         insertProbe(body, signature);
     }
+
 }

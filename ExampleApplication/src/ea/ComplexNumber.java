@@ -3,7 +3,7 @@ package ea;
 import java.util.Objects;
 
 public class ComplexNumber {
-
+    // class level comment
     public final double re;
 
     public final double im;
@@ -24,9 +24,16 @@ public class ComplexNumber {
         return new ComplexNumber(re, im);
     }
 
+    /**
+     * javadoc
+     * @param c
+     * @return
+     */
     public ComplexNumber subtract(ComplexNumber c) {
-        double re = this.re - c.re;
-        double im = this.im - c.im;
+        double re = this.re - c.re; double im = this.im - c.im;
+
+
+        // a comment
         return new ComplexNumber(re, im);
     }
 

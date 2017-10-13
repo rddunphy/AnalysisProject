@@ -1,7 +1,7 @@
 package ea;
 
 import java.util.Objects;
-import cc.CoverageLogger;
+import runtime.CoverageLogger;
 
 public class ComplexNumber {
 

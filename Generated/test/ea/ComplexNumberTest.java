@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
-import cc.CoverageLogger;
+import runtime.CoverageLogger;
 
 public class ComplexNumberTest {
 
@@ -25,10 +25,12 @@ public class ComplexNumberTest {
     @BeforeClass
     public static void coverageSetup() {
         CoverageLogger.getInstance().reset();
+        String[] signatures = new String[] { "add(ComplexNumber)", "subtract(ComplexNumber)", "ComplexNumber(ComplexNumber)", "hashCode()", "toString()", "ComplexNumber(double, double)", "equals(Object)" };
+        CoverageLogger.getInstance().setMethodSignatures(signatures);
     }
 
     @AfterClass
     public static void coverageWrapup() {
-        System.out.println("Number of methods visited: " + CoverageLogger.getInstance().getNumberOfCoveredMethods());
+        System.out.println("Method coverage: " + CoverageLogger.getInstance().getMethodCoverage());
     }
 }
