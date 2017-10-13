@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ProbeInsertionVisitor extends VoidVisitorAdapter {
 
     private void insertProbe(BlockStmt body, String name) {
-        Statement stmt = JavaParser.parseStatement("System.out.println(\"" + name + " called.\");");
+        Statement stmt = JavaParser.parseStatement("CoverageLogger.getInstance().addCoveredMethod(\"" + name + "\");");
         body.addStatement(0, stmt);
     }
 
