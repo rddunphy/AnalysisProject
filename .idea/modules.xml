@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CoverageCalculator/CoverageCalculator.iml" filepath="$PROJECT_DIR$/CoverageCalculator/CoverageCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/ExampleApplication/ExampleApplication.iml" filepath="$PROJECT_DIR$/ExampleApplication/ExampleApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generated/Generated.iml" filepath="$PROJECT_DIR$/Generated/Generated.iml" />
     </modules>
   </component>
 </project>

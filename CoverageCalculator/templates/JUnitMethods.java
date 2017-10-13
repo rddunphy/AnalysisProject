@@ -10,6 +10,6 @@ public class JUnitMethods {
 
     @AfterClass
     public static void coverageWrapup() {
-        System.out.println("Method coverage: " + CoverageLogger.getInstance().getMethodCoverage());
+        new ReportGenerator().generate();
     }
 }

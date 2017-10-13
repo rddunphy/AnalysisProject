@@ -66,6 +66,7 @@ public class ProjectGenerator {
             cu.addImport("org.junit.BeforeClass");
             cu.addImport("org.junit.AfterClass");
             cu.addImport("runtime.CoverageLogger");
+            cu.addImport("runtime.ReportGenerator");
             c.addMember(getJUnitSetupMethod(methodSignatures));
             c.addMember(getJUnitWrapupMethod());
         }

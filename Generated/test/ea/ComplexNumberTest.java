@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import runtime.CoverageLogger;
+import runtime.ReportGenerator;
 
 public class ComplexNumberTest {
 
@@ -31,6 +32,6 @@ public class ComplexNumberTest {
 
     @AfterClass
     public static void coverageWrapup() {
-        System.out.println("Method coverage: " + CoverageLogger.getInstance().getMethodCoverage());
+        new ReportGenerator().generate();
     }
 }
