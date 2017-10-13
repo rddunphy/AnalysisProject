@@ -9,10 +9,7 @@ import parser.ProjectParser;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static parser.ProjectParser.getCompilationUnitFromFile;
@@ -40,8 +37,18 @@ public class ProjectGenerator {
             for (Map.Entry<String, CompilationUnit> entry : parser.getAllTestFiles().entrySet()) {
                 copyTestFile(entry.getKey(), entry.getValue(), msv.getAllMethodSignatures());
             }
+            serialiseMethodSignatures(msv.getAllMethodSignatures());
         } catch (IOException e) {
             System.out.println(e);
+        }
+    }
+
+    private void serialiseMethodSignatures(Set<String> signatures) throws IOException {
+        File file = new File("Generated/ser/methods.ser");
+        file.getParentFile().mkdirs();
+        try (FileOutputStream fout = new FileOutputStream(file, true);
+             ObjectOutputStream oos = new ObjectOutputStream(fout)) {
+            oos.writeObject(signatures);
         }
     }
 
@@ -67,8 +74,9 @@ public class ProjectGenerator {
             cu.addImport("org.junit.AfterClass");
             cu.addImport("runtime.CoverageLogger");
             cu.addImport("runtime.ReportGenerator");
-            c.addMember(getJUnitSetupMethod(methodSignatures));
-            c.addMember(getJUnitWrapupMethod());
+            for (MethodDeclaration method : getJUnitCoverageMethods()) {
+                c.addMember(method);
+            }
         }
         writeCompilationUnitToFile(cu, generatedProjectPath + "/test/" + testFilePath);
     }
@@ -83,27 +91,4 @@ public class ProjectGenerator {
             throw new IOException("Problem reading JUnitMethods.java.");
         }
     }
-
-    private MethodDeclaration getJUnitSetupMethod(Collection<String> methodSignatures) throws IOException {
-        List<MethodDeclaration> methods = getJUnitCoverageMethods();
-        MethodDeclaration method = methods.get(0);
-        Optional<BlockStmt> o = method.getBody();
-        if (o.isPresent()) {
-            BlockStmt body = o.get();
-            StringBuilder builder = new StringBuilder();
-            builder.append("String[] signatures = new String[] {");
-            methodSignatures = methodSignatures.stream().map(x -> "\"" + x + "\"").collect(Collectors.toSet());
-            builder.append(String.join(", ", methodSignatures));
-            builder.append("};");
-            body.addStatement(builder.toString());
-            body.addStatement("CoverageLogger.getInstance().setMethodSignatures(signatures);");
-        }
-        return method;
-    }
-
-    private MethodDeclaration getJUnitWrapupMethod() throws IOException {
-        List<MethodDeclaration> methods = getJUnitCoverageMethods();
-        return methods.get(1);
-    }
-
 }

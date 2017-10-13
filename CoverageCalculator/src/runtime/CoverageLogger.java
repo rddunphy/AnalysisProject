@@ -1,9 +1,10 @@
 package runtime;
 
 import com.github.javaparser.ast.CompilationUnit;
+import jdk.internal.util.xml.impl.Input;
 import parser.ProjectParser;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -18,7 +19,19 @@ public class CoverageLogger {
 
     private CoverageLogger() {
         coveredMethods = new HashSet<>();
-        allMethods = new HashSet<>();
+        try {
+            allMethods = deserialiseMethodSignatures();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Set<String> deserialiseMethodSignatures() throws IOException, ClassNotFoundException {
+        try (InputStream streamIn = new FileInputStream("../Generated/ser/methods.ser");
+             ObjectInputStream objectinputstream = new ObjectInputStream(streamIn)) {
+            Set<String> methodSignatures = (Set<String>) objectinputstream.readObject();
+            return methodSignatures;
+        }
     }
 
     public static CoverageLogger getInstance() {

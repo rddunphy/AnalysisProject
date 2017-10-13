@@ -26,8 +26,6 @@ public class ComplexNumberTest {
     @BeforeClass
     public static void coverageSetup() {
         CoverageLogger.getInstance().reset();
-        String[] signatures = new String[] { "add(ComplexNumber)", "subtract(ComplexNumber)", "ComplexNumber(ComplexNumber)", "hashCode()", "toString()", "ComplexNumber(double, double)", "equals(Object)" };
-        CoverageLogger.getInstance().setMethodSignatures(signatures);
     }
 
     @AfterClass
