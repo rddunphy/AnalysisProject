@@ -6,15 +6,24 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.Statement;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import probes.PROBE_TYPE;
+import probes.Probe;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 public class ProbeInsertionVisitor extends VoidVisitorAdapter {
 
+    private long nextProbeId = 0;
+    private Map<Long, Probe> probes = new HashMap<>();
+
     private void insertProbe(BlockStmt body, String name) {
-        String probe = "CoverageLogger.getInstance().addCoveredMethod(\"" + name + "\");";
-        Statement stmt = JavaParser.parseStatement(probe);
+        Probe probe = new Probe(nextProbeId, PROBE_TYPE.METHOD_START, name);
+        String probeCall = "CoverageLogger.getInstance().logProbe(" + nextProbeId + ");";
+        Statement stmt = JavaParser.parseStatement(probeCall);
         body.addStatement(0, stmt);
+        nextProbeId++;
     }
 
     public void visit(MethodDeclaration method, Object arg) {
@@ -33,4 +42,7 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
         insertProbe(body, signature);
     }
 
+    public Map<Long, Probe> getProbes() {
+        return probes;
+    }
 }

@@ -16,10 +16,10 @@ public class ReportGenerator {
 
     private String generateHTML(String coverage) {
         return html(
-                body().with(
-                    h1("Method coverage"),
-                    p(coverage)
-                )
-            ).render();
+            body().with(
+                h1("Method coverage"),
+                p(coverage)
+            )
+        ).render();
     }
 }

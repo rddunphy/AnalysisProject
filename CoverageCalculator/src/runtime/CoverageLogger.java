@@ -1,36 +1,33 @@
 package runtime;
 
-import com.github.javaparser.ast.CompilationUnit;
-import jdk.internal.util.xml.impl.Input;
-import parser.ProjectParser;
+import probes.PROBE_TYPE;
+import probes.Probe;
+import probes.ExceptionProbe;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CoverageLogger {
 
     private static CoverageLogger instance = new CoverageLogger();
 
-    private Set<String> allMethods;
-    private Set<String> coveredMethods;
+    private Map<Long, Probe> probeMap;
+    private List<Probe> trace;
 
     private CoverageLogger() {
-        coveredMethods = new HashSet<>();
+        trace = new ArrayList<>();
         try {
-            allMethods = deserialiseMethodSignatures();
+            probeMap = deserialiseProbeMap();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private Set<String> deserialiseMethodSignatures() throws IOException, ClassNotFoundException {
-        try (InputStream streamIn = new FileInputStream("../Generated/ser/methods.ser");
+    private Map<Long, Probe> deserialiseProbeMap() throws IOException, ClassNotFoundException {
+        try (InputStream streamIn = new FileInputStream("../Generated/ser/probes.ser");
              ObjectInputStream objectinputstream = new ObjectInputStream(streamIn)) {
-            Set<String> methodSignatures = (Set<String>) objectinputstream.readObject();
-            return methodSignatures;
+            Map<Long, Probe> probes = (Map<Long, Probe>) objectinputstream.readObject();
+            return probes;
         }
     }
 
@@ -39,20 +36,33 @@ public class CoverageLogger {
     }
 
     public void reset() {
-        coveredMethods.clear();
+        trace.clear();
     }
 
-    public void addCoveredMethod(String methodSignature) {
-        coveredMethods.add(methodSignature);
+    public void logProbe(long probeID) {
+        trace.add(probeMap.get(probeID));
+    }
+
+    public void logProbe(long probeID, Exception e) {
+        Probe probe = probeMap.get(probeID);
+        trace.add(new ExceptionProbe(probe, e));
     }
 
     public double getMethodCoverage() {
-        double coverage = coveredMethods.size();
-        return coverage / allMethods.size();
+        Set<String> allMethodSignatures = new HashSet<>();
+        Set<String> visitedMethodSignatures = new HashSet<>();
+        for (Probe probe : probeMap.values()) {
+            if (probe.getType() == PROBE_TYPE.METHOD_START) {
+                allMethodSignatures.add(probe.getMethodSignature());
+            }
+        }
+        for (Probe probe : trace) {
+            if (probe.getType() == PROBE_TYPE.METHOD_START) {
+                visitedMethodSignatures.add(probe.getMethodSignature());
+            }
+        }
+        double coverage = visitedMethodSignatures.size();
+        return coverage / allMethodSignatures.size();
     }
 
-    public void setMethodSignatures(String[] signatures) {
-        allMethods.clear();
-        allMethods.addAll(Arrays.asList(signatures));
-    }
 }

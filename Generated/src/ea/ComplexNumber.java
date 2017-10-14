@@ -10,38 +10,38 @@ public class ComplexNumber {
     public final double im;
 
     public ComplexNumber(double re, double im) {
-        CoverageLogger.getInstance().addCoveredMethod("ComplexNumber(double, double)");
+        CoverageLogger.getInstance().logProbe(0);
         this.re = re;
         this.im = im;
     }
 
     public ComplexNumber(ComplexNumber c) {
-        CoverageLogger.getInstance().addCoveredMethod("ComplexNumber(ComplexNumber)");
+        CoverageLogger.getInstance().logProbe(1);
         this.re = c.re;
         this.im = c.im;
     }
 
     public ComplexNumber add(ComplexNumber c) {
-        CoverageLogger.getInstance().addCoveredMethod("add(ComplexNumber)");
+        CoverageLogger.getInstance().logProbe(2);
         double re = this.re + c.re;
         double im = this.im + c.im;
         return new ComplexNumber(re, im);
     }
 
     public ComplexNumber subtract(ComplexNumber c) {
-        CoverageLogger.getInstance().addCoveredMethod("subtract(ComplexNumber)");
+        CoverageLogger.getInstance().logProbe(3);
         double re = this.re - c.re;
         double im = this.im - c.im;
         return new ComplexNumber(re, im);
     }
 
     public int hashCode() {
-        CoverageLogger.getInstance().addCoveredMethod("hashCode()");
+        CoverageLogger.getInstance().logProbe(4);
         return Objects.hash(this.re, this.im);
     }
 
     public boolean equals(Object o) {
-        CoverageLogger.getInstance().addCoveredMethod("equals(Object)");
+        CoverageLogger.getInstance().logProbe(5);
         if (o == null || !(o instanceof ComplexNumber)) {
             return false;
         }
@@ -50,7 +50,7 @@ public class ComplexNumber {
     }
 
     public String toString() {
-        CoverageLogger.getInstance().addCoveredMethod("toString()");
+        CoverageLogger.getInstance().logProbe(6);
         String reStr = Double.toString(re);
         String imStr = Double.toString(im) + " i";
         if (im == 0) {

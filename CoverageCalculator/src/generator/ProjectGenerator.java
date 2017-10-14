@@ -3,14 +3,13 @@ package generator;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.stmt.BlockStmt;
 import parser.ProjectParser;
+import probes.Probe;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static parser.ProjectParser.getCompilationUnitFromFile;
 
@@ -20,6 +19,7 @@ public class ProjectGenerator {
     private String generatedProjectPath;
 
     private static final String templatePath = "CoverageCalculator/templates";
+    private ProbeInsertionVisitor probeInsertionVisitor;
 
     public ProjectGenerator(String sourceProjectPath, String generatedProjectPath) {
         this.sourceProjectPath = sourceProjectPath;
@@ -28,27 +28,26 @@ public class ProjectGenerator {
 
     public void generate() {
         ProjectParser parser = new ProjectParser(sourceProjectPath);
-        MethodSignatureVisitor msv = new MethodSignatureVisitor();
+        probeInsertionVisitor = new ProbeInsertionVisitor();
         try {
             for (Map.Entry<String, CompilationUnit> entry : parser.getAllSourceFiles().entrySet()) {
                 copySourceFile(entry.getKey(), entry.getValue());
-                entry.getValue().accept(msv, null);
             }
             for (Map.Entry<String, CompilationUnit> entry : parser.getAllTestFiles().entrySet()) {
-                copyTestFile(entry.getKey(), entry.getValue(), msv.getAllMethodSignatures());
+                copyTestFile(entry.getKey(), entry.getValue());
             }
-            serialiseMethodSignatures(msv.getAllMethodSignatures());
+            serialiseProbes();
         } catch (IOException e) {
             System.out.println(e);
         }
     }
 
-    private void serialiseMethodSignatures(Set<String> signatures) throws IOException {
-        File file = new File("Generated/ser/methods.ser");
+    private void serialiseProbes() throws IOException {
+        File file = new File("Generated/ser/probes.ser");
         file.getParentFile().mkdirs();
         try (FileOutputStream fout = new FileOutputStream(file, true);
              ObjectOutputStream oos = new ObjectOutputStream(fout)) {
-            oos.writeObject(signatures);
+            oos.writeObject(probeInsertionVisitor.getProbes());
         }
     }
 
@@ -61,11 +60,11 @@ public class ProjectGenerator {
 
     private void copySourceFile(String sourceFilePath, CompilationUnit cu) throws IOException {
         cu.addImport("runtime.CoverageLogger");
-        cu.accept(new ProbeInsertionVisitor(), null);
+        cu.accept(probeInsertionVisitor, null);
         writeCompilationUnitToFile(cu, generatedProjectPath + "/src/" + sourceFilePath);
     }
 
-    private void copyTestFile(String testFilePath, CompilationUnit cu, Collection<String> methodSignatures) throws IOException {
+    private void copyTestFile(String testFilePath, CompilationUnit cu) throws IOException {
         String path = sourceProjectPath + "/test/" + testFilePath;
         Optional<ClassOrInterfaceDeclaration> o = cu.getClassByName("ComplexNumberTest");
         if (o.isPresent()) {
