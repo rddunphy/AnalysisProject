@@ -11,6 +11,20 @@ public class ComplexNumber {
     public ComplexNumber(double re, double im) {
         this.re = re;
         this.im = im;
+        if (re == 3) {
+            int x = 1;
+            int y = 3;
+            int z = x+y;
+        } else if (im == 2) {
+            int x =2;
+            int y = 4;
+            int z = x* y;
+            int a = 4;
+        } else {
+            int a = 2;
+            int b = 3;
+            int c = 4;
+        }
     }
 
     public ComplexNumber(ComplexNumber c) {

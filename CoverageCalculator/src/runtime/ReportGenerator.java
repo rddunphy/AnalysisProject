@@ -12,7 +12,7 @@ import static j2html.TagCreator.*;
 public class ReportGenerator {
 
     public void generate() {
-        double methodCoverage = CoverageLogger.getInstance().getMethodCoverage();
+        double methodCoverage = TraceLogger.getInstance().getMethodCoverage();
         System.out.println("Method coverage: " + formatPercentage(methodCoverage));
         writeReportFile(generateHTML(formatPercentage(methodCoverage)), "../ExampleApplication/report/index.html");
     }
