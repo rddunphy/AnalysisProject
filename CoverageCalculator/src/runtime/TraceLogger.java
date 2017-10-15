@@ -7,14 +7,14 @@ import probes.ExceptionProbe;
 import java.io.*;
 import java.util.*;
 
-public class CoverageLogger {
+public class TraceLogger {
 
-    private static CoverageLogger instance = new CoverageLogger();
+    private static TraceLogger instance = new TraceLogger();
 
     private Map<Long, Probe> probeMap;
     private List<Probe> trace;
 
-    private CoverageLogger() {
+    private TraceLogger() {
         trace = new ArrayList<>();
         try {
             probeMap = deserialiseProbeMap();
@@ -31,7 +31,7 @@ public class CoverageLogger {
         }
     }
 
-    public static CoverageLogger getInstance() {
+    public static TraceLogger getInstance() {
         return instance;
     }
 

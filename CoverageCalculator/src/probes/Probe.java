@@ -7,11 +7,13 @@ public class Probe implements Serializable {
     private final long id;
     private final PROBE_TYPE type;
     private String methodSignature;
+    private int statementCount;
 
-    public Probe(long id, PROBE_TYPE type, String methodSignature) {
+    public Probe(long id, PROBE_TYPE type, String methodSignature, int statementCount) {
         this.id = id;
         this.type = type;
         this.methodSignature = methodSignature;
+        this.statementCount = statementCount;
     }
 
     public PROBE_TYPE getType() {
@@ -26,4 +28,7 @@ public class Probe implements Serializable {
         return methodSignature;
     }
 
+    public int getStatementCount() {
+        return statementCount;
+    }
 }

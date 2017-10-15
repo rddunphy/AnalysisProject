@@ -51,7 +51,8 @@ public class ProjectGenerator {
         file.delete();
         try (FileOutputStream fout = new FileOutputStream(file, true);
              ObjectOutputStream oos = new ObjectOutputStream(fout)) {
-            oos.writeObject(probeInsertionVisitor.getProbes());
+            Map<Long, Probe> probes = probeInsertionVisitor.getProbes();
+            oos.writeObject(probes);
         }
     }
 
@@ -63,7 +64,7 @@ public class ProjectGenerator {
     }
 
     private void copySourceFile(String sourceFilePath, CompilationUnit cu) throws IOException {
-        cu.addImport("runtime.CoverageLogger");
+        cu.addImport("runtime.TraceLogger");
         cu.accept(probeInsertionVisitor, null);
         writeCompilationUnitToFile(cu, generatedProjectPath + "/src/" + sourceFilePath);
     }
