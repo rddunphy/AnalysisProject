@@ -45,6 +45,7 @@ public class ProjectGenerator {
     private void serialiseProbes() throws IOException {
         File file = new File("Generated/ser/probes.ser");
         file.getParentFile().mkdirs();
+        file.delete();
         try (FileOutputStream fout = new FileOutputStream(file, true);
              ObjectOutputStream oos = new ObjectOutputStream(fout)) {
             oos.writeObject(probeInsertionVisitor.getProbes());
@@ -65,19 +66,25 @@ public class ProjectGenerator {
     }
 
     private void copyTestFile(String testFilePath, CompilationUnit cu) throws IOException {
-        String path = sourceProjectPath + "/test/" + testFilePath;
-        Optional<ClassOrInterfaceDeclaration> o = cu.getClassByName("ComplexNumberTest");
-        if (o.isPresent()) {
-            ClassOrInterfaceDeclaration c = o.get();
-            cu.addImport("org.junit.BeforeClass");
-            cu.addImport("org.junit.AfterClass");
-            cu.addImport("runtime.CoverageLogger");
-            cu.addImport("runtime.ReportGenerator");
-            for (MethodDeclaration method : getJUnitCoverageMethods()) {
-                c.addMember(method);
-            }
+        cu.addImport("org.junit.BeforeClass");
+        cu.addImport("org.junit.AfterClass");
+        cu.addImport("runtime.CoverageLogger");
+        cu.addImport("runtime.ReportGenerator");
+        ClassOrInterfaceDeclaration c = getContainedClass(testFilePath, cu);
+        for (MethodDeclaration method : getJUnitCoverageMethods()) {
+            c.addMember(method);
         }
         writeCompilationUnitToFile(cu, generatedProjectPath + "/test/" + testFilePath);
+    }
+
+    private ClassOrInterfaceDeclaration getContainedClass(String filePath, CompilationUnit cu) {
+        String className = filePath.substring(filePath.lastIndexOf("/") + 1);
+        className = className.substring(0, className.indexOf("."));
+        Optional<ClassOrInterfaceDeclaration> o = cu.getClassByName(className);
+        if (o.isPresent()) {
+            return o.get();
+        }
+        return null;
     }
 
     private List<MethodDeclaration> getJUnitCoverageMethods() throws IOException {

@@ -1,4 +1,4 @@
-package ea;
+package math;
 
 import java.util.Objects;
 

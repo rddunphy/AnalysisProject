@@ -1,4 +1,4 @@
-package ea;
+package math;
 
 import org.junit.Test;
 
@@ -18,6 +18,12 @@ public class ComplexNumberTest {
         ComplexNumber c2 = new ComplexNumber(3, 4);
         ComplexNumber result = new ComplexNumber(4,6);
         assertEquals(c1.add(c2), result);
+    }
+
+    @Test
+    public void angleTest() {
+        Angle a = new Angle(Math.PI);
+        assertTrue(Math.abs(a.getDegrees() - 180) < 0.1);
     }
 
 }

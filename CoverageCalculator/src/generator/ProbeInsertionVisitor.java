@@ -23,6 +23,7 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
         String probeCall = "CoverageLogger.getInstance().logProbe(" + nextProbeId + ");";
         Statement stmt = JavaParser.parseStatement(probeCall);
         body.addStatement(0, stmt);
+        probes.put(nextProbeId, probe);
         nextProbeId++;
     }
 

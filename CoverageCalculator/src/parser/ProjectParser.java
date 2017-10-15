@@ -8,10 +8,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class ProjectParser {
 
@@ -34,32 +33,26 @@ public class ProjectParser {
     }
 
     public Map<String, CompilationUnit> getAllTestFiles() {
-        Map<String, CompilationUnit> map = new HashMap<>();
-        try {
-            map.put("ea/ComplexNumberTest.java", getCompilationUnitFromFile(sourceProjectPath + "/test/ea/ComplexNumberTest.java"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return map;
+        String root = sourceProjectPath + "/test";
+        return getAllJavaFiles(root);
     }
 
     public Map<String, CompilationUnit> getAllSourceFiles() {
-        Map<String, CompilationUnit> map = new HashMap<>();
-        try {
-            map.put("ea/ComplexNumber.java", getCompilationUnitFromFile(sourceProjectPath + "/src/ea/ComplexNumber.java"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return map;
+        String root = sourceProjectPath + "/src";
+        return getAllJavaFiles(root);
     }
 
-    public List<CompilationUnit> getAllSourceCompilationUnits() {
-        List<CompilationUnit> l = new ArrayList<>();
-        try {
-            l.add(getCompilationUnitFromFile("../" +sourceProjectPath + "/src/ea/ComplexNumber.java"));
-        } catch (IOException e) {
-            e.printStackTrace();
+    public Map<String, CompilationUnit> getAllJavaFiles(String root) {
+        Map<String, CompilationUnit> map = new HashMap<>();
+        DirectoryScanner scanner = new DirectoryScanner();
+        Set<String> filePaths = scanner.scan(root);
+        for (String path : filePaths) {
+            try {
+                map.put(path, getCompilationUnitFromFile(root + "/" + path));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return l;
+        return map;
     }
 }
