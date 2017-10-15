@@ -1,8 +1,10 @@
 package generator;
 
+import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.expr.AnnotationExpr;
 import parser.ProjectParser;
 import probes.Probe;
 
@@ -36,6 +38,7 @@ public class ProjectGenerator {
             for (Map.Entry<String, CompilationUnit> entry : parser.getAllTestFiles().entrySet()) {
                 copyTestFile(entry.getKey(), entry.getValue());
             }
+            generateTestRunner(parser.getAllTestFiles().keySet());
             serialiseProbes();
         } catch (IOException e) {
             System.out.println(e);
@@ -43,7 +46,7 @@ public class ProjectGenerator {
     }
 
     private void serialiseProbes() throws IOException {
-        File file = new File("Generated/ser/probes.ser");
+        File file = new File(generatedProjectPath + "/ser/probes.ser");
         file.getParentFile().mkdirs();
         file.delete();
         try (FileOutputStream fout = new FileOutputStream(file, true);
@@ -65,15 +68,27 @@ public class ProjectGenerator {
         writeCompilationUnitToFile(cu, generatedProjectPath + "/src/" + sourceFilePath);
     }
 
-    private void copyTestFile(String testFilePath, CompilationUnit cu) throws IOException {
-        cu.addImport("org.junit.BeforeClass");
-        cu.addImport("org.junit.AfterClass");
-        cu.addImport("runtime.CoverageLogger");
-        cu.addImport("runtime.ReportGenerator");
-        ClassOrInterfaceDeclaration c = getContainedClass(testFilePath, cu);
-        for (MethodDeclaration method : getJUnitCoverageMethods()) {
-            c.addMember(method);
+    private void generateTestRunner(Collection<String> testClassFiles) throws IOException {
+        String filePath = templatePath + "/TestCoverageRunner.java";
+        CompilationUnit cu = getCompilationUnitFromFile(filePath);
+        ClassOrInterfaceDeclaration c = getContainedClass(filePath, cu);
+        List<String> testClasses = new ArrayList<>();
+        for (String path : testClassFiles) {
+            path = path.substring(0, path.indexOf("."));
+            path += ".class";
+            path = path.substring(1);
+            path = path.replaceAll("/", ".");
+            testClasses.add(path);
         }
+        StringBuilder builder = new StringBuilder("@Suite.SuiteClasses({");
+        builder.append(String.join(", ", testClasses));
+        builder.append("})");
+        AnnotationExpr annotation = JavaParser.parseAnnotation(builder.toString());
+        c.addAnnotation(annotation);
+        writeCompilationUnitToFile(cu, generatedProjectPath + "/test/TestCoverageRunner.java");
+    }
+
+    private void copyTestFile(String testFilePath, CompilationUnit cu) throws IOException {
         writeCompilationUnitToFile(cu, generatedProjectPath + "/test/" + testFilePath);
     }
 
@@ -88,13 +103,9 @@ public class ProjectGenerator {
     }
 
     private List<MethodDeclaration> getJUnitCoverageMethods() throws IOException {
-        CompilationUnit cu = getCompilationUnitFromFile(templatePath + "/JUnitMethods.java");
-        Optional<ClassOrInterfaceDeclaration> o = cu.getClassByName("JUnitMethods");
-        if (o.isPresent()) {
-            ClassOrInterfaceDeclaration c = o.get();
-            return c.getMethods();
-        } else {
-            throw new IOException("Problem reading JUnitMethods.java.");
-        }
+        String filePath = templatePath + "/JUnitMethods.java";
+        CompilationUnit cu = getCompilationUnitFromFile(filePath);
+        ClassOrInterfaceDeclaration c = getContainedClass(filePath, cu);
+        return c.getMethods();
     }
 }

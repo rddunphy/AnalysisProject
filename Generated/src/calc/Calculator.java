@@ -9,4 +9,9 @@ public class Calculator {
         CoverageLogger.getInstance().logProbe(7);
         return a.add(b);
     }
+
+    public int addNumbers(int a, int b) {
+        CoverageLogger.getInstance().logProbe(8);
+        return a + b;
+    }
 }

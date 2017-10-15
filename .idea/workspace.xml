@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e792f6d-3515-4c3d-980c-ffa65f97f4fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExampleApplication/src/math/Angle.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Generated/ser/probes.ser" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/ea/ComplexNumber.java" afterPath="$PROJECT_DIR$/ExampleApplication/src/math/ComplexNumber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/test/ea/ComplexNumberTest.java" afterPath="$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Generated/src/ea/ComplexNumber.java" afterPath="$PROJECT_DIR$/Generated/src/math/ComplexNumber.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Generated/test/ea/ComplexNumberTest.java" afterPath="$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_hamcrest_hamcrest_all_1_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CoverageCalculator/templates/TestCoverageRunner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExampleApplication/test/calc/CalculatorTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExampleApplication/test/math/AngleTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Generated/test/TestCoverageRunner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Generated/test/calc/CalculatorTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Generated/test/math/AngleTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleApplication/ExampleApplication.iml" afterPath="$PROJECT_DIR$/ExampleApplication/ExampleApplication.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleApplication/report/index.html" afterPath="$PROJECT_DIR$/ExampleApplication/report/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" afterPath="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java" afterPath="$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generated/Generated.iml" afterPath="$PROJECT_DIR$/Generated/Generated.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generated/ser/probes.ser" afterPath="$PROJECT_DIR$/Generated/ser/probes.ser" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generated/src/calc/Calculator.java" afterPath="$PROJECT_DIR$/Generated/src/calc/Calculator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generated/src/math/Angle.java" afterPath="$PROJECT_DIR$/Generated/src/math/Angle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java" afterPath="$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,19 +39,58 @@
       <file leaf-file-name="ProjectGenerator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+            <state relative-caret-position="294">
+              <caret line="91" column="11" lean-forward="false" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java">
+      <file leaf-file-name="ComplexNumberTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+            <state relative-caret-position="342">
+              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AngleTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/AngleTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding>
+                <element signature="e#140#141#0" expanded="true" />
+                <element signature="e#171#172#0" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+                <element signature="e#242#243#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalculatorTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExampleApplication/test/calc/CalculatorTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,79 +105,34 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AngleTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Generated/test/math/AngleTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1508076925269" expanded="true" signature="527:538" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ComplexNumberTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-              <folding>
-                <element signature="e#952#953#0" expanded="true" />
-                <element signature="e#1000#1001#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Angle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Generated/src/math/Angle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="342">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoverageLogger.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageLogger.java">
+      <file leaf-file-name="Generated.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Generated/Generated.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="58" column="35" lean-forward="true" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
-              <folding>
-                <element signature="e#1048#1049#0" expanded="true" />
-                <element signature="e#1077#1078#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ComplexNumber.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Generated/src/math/ComplexNumber.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="27" column="41" lean-forward="false" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProbeInsertionVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="34" column="33" lean-forward="false" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DirectoryScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Calculator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Generated/src/calc/Calculator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -144,8 +143,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -184,10 +183,17 @@
         <option value="$PROJECT_DIR$/ExampleApplication/src/ea/Angle.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/ea/ComplexNumberTest.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryParser.java" />
-        <option value="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageLogger.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/test/AllTests.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/test/TestCoverageRunner.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/templates/TestCoverageRunner.java" />
+        <option value="$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/test/math/AngleTest.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/test/calc/CalculatorTest.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java" />
       </list>
     </option>
@@ -304,6 +310,12 @@
               <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="calc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="math" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -361,9 +373,20 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="add_unversioned_files" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="runtime" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="calc" />
+      <recent name="math" />
       <recent name="ea" />
     </key>
     <key name="MoveMembersDialog.RECENTS_KEY">
@@ -372,11 +395,8 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ea" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="runtime" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/CoverageCalculator/templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -391,7 +411,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="JUnit.TestCoverageRunner (1)">
+    <configuration name="AngleTest.angleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="math.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="ExampleApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="math" />
+      <option name="MAIN_CLASS_NAME" value="math.AngleTest" />
+      <option name="METHOD_NAME" value="angleTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="ComplexNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -417,32 +462,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="ComplexNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="math.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Generated" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="math" />
-      <option name="MAIN_CLASS_NAME" value="math.ComplexNumberTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -461,24 +481,45 @@
       <module name="CoverageCalculator" />
       <envs />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="coverage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="coverage.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <configuration name="TestCoverageRunner (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Generated" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestCoverageRunner" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CoverageCalculator" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
       <envs />
+      <patterns />
+    </configuration>
+    <configuration name="TestCoverageRunner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="ExampleApplication" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestCoverageRunner" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -561,18 +602,20 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.ComplexNumberTest" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main (1)" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ComplexNumberTest (1)" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.AngleTest.angleTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner (1)" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ComplexNumberTest (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ComplexNumberTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ComplexNumberTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AngleTest.angleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -591,44 +634,44 @@
       <updated>1507834112816</updated>
       <workItem from="1507834115639" duration="7047000" />
       <workItem from="1507921488240" duration="5358000" />
-      <workItem from="1508001170521" duration="9825000" />
+      <workItem from="1508001170521" duration="16683000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 10h 33m 08s.xml">
+    <history-entry file="AllTests - 2017.10.15 at 14h 52m 28s.xml">
+      <configuration name="AllTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AngleTest - 2017.10.15 at 13h 22m 10s.xml">
+      <configuration name="AngleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AngleTest_(1) - 2017.10.15 at 14h 28m 47s.xml">
+      <configuration name="AngleTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AngleTest_angleTest - 2017.10.15 at 14h 34m 08s.xml">
+      <configuration name="AngleTest.angleTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComplexNumberTest - 2017.10.15 at 14h 28m 24s.xml">
       <configuration name="ComplexNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 11h 08m 00s.xml">
+    <history-entry file="ComplexNumberTest - 2017.10.15 at 14h 28m 38s.xml">
       <configuration name="ComplexNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 11h 09m 52s.xml">
+    <history-entry file="ComplexNumberTest - 2017.10.15 at 14h 34m 35s.xml">
       <configuration name="ComplexNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 11h 11m 25s.xml">
+    <history-entry file="ComplexNumberTest - 2017.10.15 at 14h 44m 12s.xml">
       <configuration name="ComplexNumberTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 11h 11m 59s.xml">
-      <configuration name="ComplexNumberTest" configurationId="JUnit" />
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.15 at 15h 11m 39s.xml">
+      <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 11h 12m 09s.xml">
-      <configuration name="ComplexNumberTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComplexNumberTest - 2017.10.15 at 11h 12m 24s.xml">
-      <configuration name="ComplexNumberTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComplexNumberTest_(1) - 2017.10.15 at 09h 57m 26s.xml">
-      <configuration name="ComplexNumberTest (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComplexNumberTest_(1) - 2017.10.15 at 10h 02m 06s.xml">
-      <configuration name="ComplexNumberTest (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ComplexNumberTest_(1) - 2017.10.15 at 10h 23m 06s.xml">
-      <configuration name="ComplexNumberTest (1)" configurationId="JUnit" />
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.15 at 15h 15m 44s.xml">
+      <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22230000" />
+    <option name="totallyTimeSpent" value="29088000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="233" width="1857" height="1092" extended-state="6" />
@@ -682,7 +725,7 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -729,10 +772,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="32" column="19" lean-forward="false" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-          <folding>
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#1000#1001#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -920,38 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="25" column="55" lean-forward="false" selection-start-line="25" selection-start-column="55" selection-end-line="25" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/math/Angle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding>
-            <element signature="e#150#151#0" expanded="true" />
-            <element signature="e#188#189#0" expanded="true" />
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#171#172#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageLogger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="882">
@@ -959,17 +967,6 @@
           <folding>
             <element signature="e#1048#1049#0" expanded="true" />
             <element signature="e#1077#1078#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-          <folding>
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#1000#1001#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1016,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1032,10 +1021,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/AltTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/math/Angle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="15" lean-forward="false" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/templates/TestCoverageRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/test/math/AngleTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1508076925269" expanded="true" signature="527:538" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/Generated.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/AngleTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#140#141#0" expanded="true" />
+            <element signature="e#171#172#0" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#242#243#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/calc/CalculatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <marker date="1508076925285" expanded="false" signature="403:414" ph=" { " />
+            <marker date="1508076925285" expanded="false" signature="451:457" ph=" }" />
+            <marker date="1508076925285" expanded="false" signature="514:525" ph=" { " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="91" column="11" lean-forward="false" selection-start-line="91" selection-start-column="11" selection-end-line="91" selection-end-column="11" />
           <folding />
         </state>
       </provider>
