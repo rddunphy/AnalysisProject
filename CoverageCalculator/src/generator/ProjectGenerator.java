@@ -102,10 +102,4 @@ public class ProjectGenerator {
         return null;
     }
 
-    private List<MethodDeclaration> getJUnitCoverageMethods() throws IOException {
-        String filePath = templatePath + "/JUnitMethods.java";
-        CompilationUnit cu = getCompilationUnitFromFile(filePath);
-        ClassOrInterfaceDeclaration c = getContainedClass(filePath, cu);
-        return c.getMethods();
-    }
 }
