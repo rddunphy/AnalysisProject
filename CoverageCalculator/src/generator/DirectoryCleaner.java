@@ -1,14 +1,16 @@
-package main;
+package generator;
+
+import main.Main;
 
 import java.io.File;
 
-public class Clean {
+public class DirectoryCleaner {
 
-    public static void main(String[] args) {
-        deleteDirectory(Main.SOURCE_PROJECT + "/report");
-        deleteDirectory(Main.GENERATED_PROJECT + "/ser");
-        deleteDirectory(Main.GENERATED_PROJECT + "/src");
-        deleteDirectory(Main.GENERATED_PROJECT + "/test");
+    public static void cleanProject(String sourceProject, String generatedProject) {
+        deleteDirectory(sourceProject + "/report");
+        deleteDirectory(generatedProject + "/ser");
+        deleteDirectory(generatedProject + "/src");
+        deleteDirectory(generatedProject + "/test");
     }
 
     private static void deleteDirectory(String path) {

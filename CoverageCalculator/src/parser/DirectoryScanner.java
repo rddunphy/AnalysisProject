@@ -6,30 +6,35 @@ import java.util.Set;
 
 public class DirectoryScanner {
 
-    private Set<String> filePaths;
+    private MyNode tree;
 
     public DirectoryScanner() {
-        filePaths = new HashSet<>();
+        tree = new MyNode(null, CODE_UNIT.PROJECT,"root", "");
     }
 
-    public Set<String> scan(String root) {
+    public MyNode scan(String root) {
         return scan(new File(root));
     }
 
-    public Set<String> scan(File root) {
-        return scan("", root);
+    public MyNode scan(File root) {
+        return scan("", root, tree);
     }
 
-    private Set<String> scan(String path, File file) {
+    private MyNode scan(String path, File file, MyNode node) {
         if (file.isDirectory()) {
+            MyNode childNode = new MyNode(node, CODE_UNIT.PACKAGE, file.getName(), path);
             for (File child : file.listFiles()) {
-                scan(path + "/" + child.getName(), child);
+                scan(path + "/" + child.getName(), child, childNode);
+            }
+            if (!childNode.getChildren().isEmpty()) {
+                node.addChild(childNode);
             }
         } else {
             if (path.endsWith(".java")) {
-                filePaths.add(path);
+                String unitName = file.getName().substring(file.getName().lastIndexOf("."));
+                MyNode childNode = new MyNode(node, CODE_UNIT.CLASS, unitName, path);
             }
         }
-        return filePaths;
+        return tree;
     }
 }

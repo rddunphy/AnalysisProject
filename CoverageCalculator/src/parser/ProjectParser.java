@@ -45,8 +45,9 @@ public class ProjectParser {
     public Map<String, CompilationUnit> getAllJavaFiles(String root) {
         Map<String, CompilationUnit> map = new HashMap<>();
         DirectoryScanner scanner = new DirectoryScanner();
-        Set<String> filePaths = scanner.scan(root);
-        for (String path : filePaths) {
+        MyNode fileTree = scanner.scan(root);
+        for (MyNode classNode : fileTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
+            String path = classNode.getPath();
             try {
                 map.put(path, getCompilationUnitFromFile(root + "/" + path));
             } catch (IOException e) {

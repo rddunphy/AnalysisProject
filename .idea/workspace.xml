@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e792f6d-3515-4c3d-980c-ffa65f97f4fc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CODE_UNIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageMeasure.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/MyNode.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CoverageCalculator/src/main/Clean.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CODE_UNIT.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/CODE_UNIT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageMeasure.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageMeasure.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,41 +26,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProjectGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
+      <file leaf-file-name="DirectoryCleaner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="72" column="48" lean-forward="false" selection-start-line="72" selection-start-column="47" selection-end-line="72" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="114">
+              <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProbeInsertionVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="96" column="5" lean-forward="false" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Clean.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Clean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="84" lean-forward="false" selection-start-line="12" selection-start-column="84" selection-end-line="12" selection-end-column="84" />
+            <state relative-caret-position="234">
+              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -63,15 +51,62 @@
       <file leaf-file-name="TestCoverageRunner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="216">
+              <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#401#402#0" expanded="true" />
-                <element signature="e#450#451#0" expanded="true" />
-                <marker date="1508097627604" expanded="false" signature="508:519" ph=" { " />
-                <marker date="1508097627604" expanded="false" signature="552:558" ph=" }" />
+                <marker date="1508145999447" expanded="true" signature="321:332" ph=" { " />
+                <marker date="1508145999447" expanded="true" signature="366:372" ph=" }" />
+                <marker date="1508145999447" expanded="true" signature="429:440" ph=" { " />
+                <marker date="1508145999447" expanded="true" signature="473:479" ph=" }" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DirectoryScanner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding>
+                <element signature="e#176#177#0" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/MyNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="53" column="21" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+                <element signature="e#521#522#0" expanded="true" />
+                <element signature="e#561#562#0" expanded="true" />
+                <element signature="e#592#593#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
+                <element signature="e#650#651#0" expanded="true" />
+                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#708#709#0" expanded="true" />
+                <element signature="e#749#750#0" expanded="true" />
+                <element signature="e#783#784#0" expanded="true" />
+                <element signature="e#817#818#0" expanded="true" />
+                <element signature="e#844#845#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,7 +128,7 @@
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,40 +136,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoverageMeasure.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CoverageMeasure.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageMeasure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="414">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <element signature="e#516#517#0" expanded="true" />
-                <element signature="e#543#544#0" expanded="true" />
-                <element signature="e#585#586#0" expanded="true" />
-                <element signature="e#623#624#0" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-                <element signature="e#701#702#0" expanded="true" />
-                <element signature="e#745#746#0" expanded="true" />
-                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#542#543#0" expanded="true" />
+                <element signature="e#569#570#0" expanded="true" />
+                <element signature="e#611#612#0" expanded="true" />
+                <element signature="e#649#650#0" expanded="true" />
+                <element signature="e#690#691#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="CODE_UNIT.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CODE_UNIT.java">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/CODE_UNIT.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjectParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -146,8 +171,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -168,7 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ExampleApplication/src/ea/ClassA.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/ea/ClassATest.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/src/ea/ComplexNumber.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/coverage/InsertProbeVisitor.java" />
@@ -186,8 +210,6 @@
         <option value="$PROJECT_DIR$/ExampleApplication/src/ea/Angle.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/ea/ComplexNumberTest.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryParser.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/AllTests.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/TestCoverageRunner.java" />
         <option value="$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java" />
@@ -196,7 +218,6 @@
         <option value="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/calc/CalculatorTest.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportFieWriter.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/main/Clean.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageLogger.java" />
@@ -214,6 +235,15 @@
         <option value="$PROJECT_DIR$/CoverageCalculator/templates/TestCoverageRunner.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/CODE_UNIT.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageMeasure.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/Clean.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/Cleaner.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/TestRunner.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/MyNode.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/CODE_UNIT.java" />
       </list>
     </option>
   </component>
@@ -301,11 +331,6 @@
             <path>
               <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="report" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,6 +400,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="parser" />
       <recent name="runtime" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -407,26 +433,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestCoverageRunner (1)">
-    <configuration name="Clean" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="main.Clean" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="CoverageCalculator" />
-      <envs />
-    </configuration>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ComplexNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -452,10 +459,29 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="DirectoryCleaner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="generator.DirectoryCleaner" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CoverageCalculator" />
+      <envs />
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="generator.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -597,13 +623,13 @@
       <item index="1" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner" />
       <item index="2" class="java.lang.String" itemvalue="Application.Main" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Clean" />
+      <item index="4" class="java.lang.String" itemvalue="Application.DirectoryCleaner" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Clean" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.DirectoryCleaner" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.ComplexNumberTest" />
       </list>
@@ -624,7 +650,7 @@
       <updated>1507834112816</updated>
       <workItem from="1507834115639" duration="7047000" />
       <workItem from="1507921488240" duration="5358000" />
-      <workItem from="1508001170521" duration="27281000" />
+      <workItem from="1508001170521" duration="31710000" />
     </task>
     <servers />
   </component>
@@ -661,7 +687,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39686000" />
+    <option name="totallyTimeSpent" value="44115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="233" width="1857" height="1092" extended-state="6" />
@@ -676,7 +702,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33026585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33026585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -726,22 +752,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="49" column="69" lean-forward="false" selection-start-line="49" selection-start-column="69" selection-end-line="49" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Generated/test/math/ComplexNumberTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -855,16 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExampleApplication/test/math/AltTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -910,7 +910,7 @@
         <state relative-caret-position="288">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -920,10 +920,10 @@
         <state relative-caret-position="198">
           <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
           <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#171#172#0" expanded="true" />
-            <element signature="e#214#215#0" expanded="true" />
-            <element signature="e#242#243#0" expanded="true" />
+            <element signature="e#140#141#0" expanded="false" />
+            <element signature="e#171#172#0" expanded="false" />
+            <element signature="e#214#215#0" expanded="false" />
+            <element signature="e#242#243#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -933,7 +933,7 @@
         <state relative-caret-position="252">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1027,18 +1027,10 @@
         <state relative-caret-position="216">
           <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1120#1121#0" expanded="false" />
+            <element signature="e#1175#1176#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1054,22 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="96" column="5" lean-forward="false" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Clean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="84" lean-forward="false" selection-start-line="12" selection-start-column="84" selection-end-line="12" selection-end-column="84" />
           <folding />
         </state>
       </provider>
@@ -1093,52 +1069,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#401#402#0" expanded="true" />
-            <element signature="e#450#451#0" expanded="true" />
-            <marker date="1508097627604" expanded="false" signature="508:519" ph=" { " />
-            <marker date="1508097627604" expanded="false" signature="552:558" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CODE_UNIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageMeasure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="414">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="e#516#517#0" expanded="true" />
-            <element signature="e#543#544#0" expanded="true" />
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#569#570#0" expanded="true" />
+            <element signature="e#611#612#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/TestRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1508145999447" expanded="true" signature="321:332" ph=" { " />
+            <marker date="1508145999447" expanded="true" signature="366:372" ph=" }" />
+            <marker date="1508145999447" expanded="true" signature="429:440" ph=" { " />
+            <marker date="1508145999447" expanded="true" signature="473:479" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/MyNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="53" column="21" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#561#562#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#681#682#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
+            <element signature="e#844#845#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="11" column="38" lean-forward="false" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="e#176#177#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/CODE_UNIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +1237,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Generated</last-edited>
+          <last-edited>CoverageCalculator</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
