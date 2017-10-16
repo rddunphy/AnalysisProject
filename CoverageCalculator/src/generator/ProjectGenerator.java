@@ -66,7 +66,8 @@ public class ProjectGenerator {
     private void copySourceFile(String sourceFilePath, CompilationUnit cu) throws IOException {
         cu.addImport("runtime.TraceLogger");
         cu.accept(probeInsertionVisitor, null);
-        writeCompilationUnitToFile(cu, generatedProjectPath + "/src/" + sourceFilePath);
+        String path = generatedProjectPath + sourceFilePath.substring(sourceFilePath.indexOf("/"));
+        writeCompilationUnitToFile(cu, path);
     }
 
     private void generateTestRunner(Collection<String> testClassFiles) throws IOException {
@@ -77,7 +78,8 @@ public class ProjectGenerator {
         for (String path : testClassFiles) {
             path = path.substring(0, path.indexOf("."));
             path += ".class";
-            path = path.substring(1);
+            path = path.substring(path.indexOf("/test/"));
+            path = path.replace("/test/", "");
             path = path.replaceAll("/", ".");
             testClasses.add(path);
         }
@@ -90,7 +92,8 @@ public class ProjectGenerator {
     }
 
     private void copyTestFile(String testFilePath, CompilationUnit cu) throws IOException {
-        writeCompilationUnitToFile(cu, generatedProjectPath + "/test/" + testFilePath);
+        String path = generatedProjectPath + testFilePath.substring(testFilePath.indexOf("/"));
+        writeCompilationUnitToFile(cu, path);
     }
 
     private ClassOrInterfaceDeclaration getContainedClass(String filePath, CompilationUnit cu) {

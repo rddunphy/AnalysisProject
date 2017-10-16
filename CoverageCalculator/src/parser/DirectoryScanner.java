@@ -1,28 +1,26 @@
 package parser;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 
 public class DirectoryScanner {
 
-    private MyNode tree;
+    private ProjectStructureTreeNode tree;
 
     public DirectoryScanner() {
-        tree = new MyNode(null, CODE_UNIT.PROJECT,"root", "");
+        tree = new ProjectStructureTreeNode(null, CODE_UNIT.PROJECT,"root", "");
     }
 
-    public MyNode scan(String root) {
+    public ProjectStructureTreeNode scan(String root) {
         return scan(new File(root));
     }
 
-    public MyNode scan(File root) {
+    public ProjectStructureTreeNode scan(File root) {
         return scan("", root, tree);
     }
 
-    private MyNode scan(String path, File file, MyNode node) {
+    private ProjectStructureTreeNode scan(String path, File file, ProjectStructureTreeNode node) {
         if (file.isDirectory()) {
-            MyNode childNode = new MyNode(node, CODE_UNIT.PACKAGE, file.getName(), path);
+            ProjectStructureTreeNode childNode = new ProjectStructureTreeNode(node, CODE_UNIT.PACKAGE, file.getName(), file.getPath());
             for (File child : file.listFiles()) {
                 scan(path + "/" + child.getName(), child, childNode);
             }
@@ -31,8 +29,9 @@ public class DirectoryScanner {
             }
         } else {
             if (path.endsWith(".java")) {
-                String unitName = file.getName().substring(file.getName().lastIndexOf("."));
-                MyNode childNode = new MyNode(node, CODE_UNIT.CLASS, unitName, path);
+                String unitName = file.getName().substring(0, file.getName().lastIndexOf("."));
+                ProjectStructureTreeNode childNode = new ProjectStructureTreeNode(node, CODE_UNIT.CLASS, unitName, file.getPath());
+                node.addChild(childNode);
             }
         }
         return tree;

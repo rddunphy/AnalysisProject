@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class ProjectParser {
 
@@ -45,11 +44,11 @@ public class ProjectParser {
     public Map<String, CompilationUnit> getAllJavaFiles(String root) {
         Map<String, CompilationUnit> map = new HashMap<>();
         DirectoryScanner scanner = new DirectoryScanner();
-        MyNode fileTree = scanner.scan(root);
-        for (MyNode classNode : fileTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
+        ProjectStructureTreeNode fileTree = scanner.scan(root);
+        for (ProjectStructureTreeNode classNode : fileTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
             String path = classNode.getPath();
             try {
-                map.put(path, getCompilationUnitFromFile(root + "/" + path));
+                map.put(path, getCompilationUnitFromFile(path));
             } catch (IOException e) {
                 e.printStackTrace();
             }

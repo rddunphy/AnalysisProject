@@ -3,15 +3,15 @@ package parser;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MyNode {
+public class ProjectStructureTreeNode {
 
-    private MyNode parent;
+    private ProjectStructureTreeNode parent;
     private CODE_UNIT type;
     private String name;
     private String path;
-    private Set<MyNode> children;
+    private Set<ProjectStructureTreeNode> children;
 
-    public MyNode(MyNode parent, CODE_UNIT type, String name, String path) {
+    public ProjectStructureTreeNode(ProjectStructureTreeNode parent, CODE_UNIT type, String name, String path) {
         this.parent = parent;
         this.type = type;
         this.name = name;
@@ -19,11 +19,11 @@ public class MyNode {
         this.children = new HashSet<>();
     }
 
-    public MyNode getParent() {
+    public ProjectStructureTreeNode getParent() {
         return parent;
     }
 
-    public Set<MyNode> getChildren() {
+    public Set<ProjectStructureTreeNode> getChildren() {
         return children;
     }
 
@@ -35,7 +35,7 @@ public class MyNode {
         return path;
     }
 
-    public void addChild(MyNode node) {
+    public void addChild(ProjectStructureTreeNode node) {
         children.add(node);
     }
 
@@ -43,9 +43,9 @@ public class MyNode {
         return type;
     }
 
-    public Set<MyNode> getAllNodesOfType(CODE_UNIT type) {
-        Set<MyNode> nodes = new HashSet<>();
-        for (MyNode child : children) {
+    public Set<ProjectStructureTreeNode> getAllNodesOfType(CODE_UNIT type) {
+        Set<ProjectStructureTreeNode> nodes = new HashSet<>();
+        for (ProjectStructureTreeNode child : children) {
             if (child.getType() == type) {
                 nodes.add(child);
             }
