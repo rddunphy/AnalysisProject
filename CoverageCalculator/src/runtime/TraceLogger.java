@@ -1,11 +1,14 @@
 package runtime;
 
+import probes.BlockEndProbe;
 import probes.MethodStartProbe;
 import probes.Probe;
-import probes.ExceptionProbe;
+import probes.ProbeFactory;
 
+import java.awt.*;
 import java.io.*;
 import java.util.*;
+import java.util.List;
 
 public class TraceLogger {
 
@@ -45,7 +48,46 @@ public class TraceLogger {
 
     public void logProbe(long probeID, Exception e) {
         Probe probe = probeMap.get(probeID);
-        trace.add(new ExceptionProbe(probe, e));
+        trace.add(ProbeFactory.createExceptionProbe(probe, e));
+    }
+
+    public void calculateStatementCoverage() {
+        Map<BlockEndProbe, Boolean> covered = new HashMap<>();
+        for (Probe probe : probeMap.values()) {
+            if (probe instanceof BlockEndProbe) {
+                covered.put((BlockEndProbe) probe, false);
+            }
+        }
+        for (Probe probe : trace) {
+            if (probe instanceof  BlockEndProbe) {
+                covered.put((BlockEndProbe) probe, true);
+            }
+        }
+        Map<String, Point> coveredStatements = new HashMap<>();
+        for (BlockEndProbe probe : covered.keySet()) {
+            String method = probe.getMethodSignature();
+            if (!coveredStatements.containsKey(method)) {
+                coveredStatements.put(method, new Point(0, 0));
+            }
+            if (covered.get(probe)) {
+                coveredStatements.get(method).x += probe.getStatementCount();
+            }
+            coveredStatements.get(method).y += probe.getStatementCount();
+        }
+        Map<String, Double> statementCoverage = new HashMap<>();
+        for (String method : coveredStatements.keySet()) {
+            Point p = coveredStatements.get(method);
+            double coverage = p.getX() / p.getY();
+            statementCoverage.put(method, coverage);
+        }
+        for (String method : statementCoverage.keySet()) {
+            System.out.println(method + ": " + formatPercentage(statementCoverage.get(method)));
+        }
+    }
+
+
+    private String formatPercentage(double d) {
+        return String.format("%.1f%%", d * 100);
     }
 
     public double getMethodCoverage() {

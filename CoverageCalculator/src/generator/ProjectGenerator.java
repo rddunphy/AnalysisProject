@@ -7,6 +7,7 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import parser.CODE_UNIT;
 import parser.ProjectParser;
 import parser.ProjectStructureNode;
+import probes.Probe;
 import probes.ProbeFactory;
 
 import java.io.*;
@@ -40,14 +41,14 @@ public class ProjectGenerator {
                 copyTestFile(node);
             }
             generateTestRunner(parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS));
-            serialiseData((Serializable) ProbeFactory.getProbes(), "probes");
+            serialiseData(ProbeFactory.getProbes(), "probes");
             serialiseData(parser.getSourceFiles(), "structure");
         } catch (IOException e) {
             System.out.println(e);
         }
     }
 
-    private void serialiseData(Serializable data, String name) throws IOException {
+    private void serialiseData(Object data, String name) throws IOException {
         File file = new File(generatedProjectPath + "/ser/" + name + ".ser");
         file.getParentFile().mkdirs();
         try (FileOutputStream fout = new FileOutputStream(file, true);

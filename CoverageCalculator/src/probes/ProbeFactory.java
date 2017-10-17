@@ -25,6 +25,10 @@ public class ProbeFactory {
         return probe;
     }
 
+    public static Probe createExceptionProbe(Probe probe, Exception e) {
+        return new ExceptionProbe(probe, e);
+    }
+
     public static Map<Long, Probe> getProbes() {
         return probes;
     }
