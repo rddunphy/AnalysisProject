@@ -1,5 +1,7 @@
 package parser;
 
-public enum CODE_UNIT {
+import java.io.Serializable;
+
+public enum CODE_UNIT implements Serializable {
     SOURCE_DIR, PACKAGE, CLASS, METHOD
 }

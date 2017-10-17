@@ -1,9 +1,10 @@
 package parser;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ProjectStructureNode {
+public class ProjectStructureNode implements Serializable {
 
     private ProjectStructureNode parent;
     private CODE_UNIT type;
