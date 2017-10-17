@@ -7,6 +7,7 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import parser.CODE_UNIT;
 import parser.ProjectParser;
 import parser.ProjectStructureNode;
+import probes.ProbeFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -39,7 +40,7 @@ public class ProjectGenerator {
                 copyTestFile(node);
             }
             generateTestRunner(parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS));
-            serialiseData((Serializable) probeInsertionVisitor.getProbes(), "probes");
+            serialiseData((Serializable) ProbeFactory.getProbes(), "probes");
             serialiseData(parser.getSourceFiles(), "structure");
         } catch (IOException e) {
             System.out.println(e);
