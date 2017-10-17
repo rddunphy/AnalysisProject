@@ -10,7 +10,7 @@ import java.util.Map;
 
 import static j2html.TagCreator.*;
 
-public class ReportFileWriter {
+class ReportFileWriter {
 
     public void generateClassPage(String className, double classCoverage, Map<String, Double> methods, String path) {
         String html = html(
@@ -39,11 +39,12 @@ public class ReportFileWriter {
 
     private void writeReportFile(String html, String path) {
         File file = new File(path);
-        file.getParentFile().mkdirs();
-        try {
-            Files.write(file.toPath(), html.getBytes(StandardCharsets.UTF_8));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (file.getParentFile().exists() || file.getParentFile().mkdirs()) {
+            try {
+                Files.write(file.toPath(), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

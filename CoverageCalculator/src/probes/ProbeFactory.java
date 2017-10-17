@@ -6,7 +6,7 @@ import java.util.Map;
 public class ProbeFactory {
 
     private static long nextProbeId = 0;
-    private static Map<Long, Probe> probes = new HashMap<>();
+    private static final Map<Long, Probe> probes = new HashMap<>();
 
     private static void storeProbe(Probe probe) {
         probes.put(probe.getId(), probe);

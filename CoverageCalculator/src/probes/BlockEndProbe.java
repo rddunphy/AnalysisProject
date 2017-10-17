@@ -2,7 +2,7 @@ package probes;
 
 public class BlockEndProbe extends Probe {
 
-    private int statementCount;
+    private final int statementCount;
 
     BlockEndProbe(long id, String methodSignature, int statementCount) {
         super(id, methodSignature);

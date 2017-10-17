@@ -2,7 +2,7 @@ package probes;
 
 public class ExceptionProbe extends Probe {
 
-    private Exception e;
+    private final Exception e;
 
     ExceptionProbe(Probe probe, Exception e) {
         super(probe.getId(), probe.getMethodSignature());

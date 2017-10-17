@@ -2,7 +2,7 @@ package runtime;
 
 import parser.CODE_UNIT;
 
-public class CoverageMeasure {
+class CoverageMeasure {
 
     private CODE_UNIT type;
     private String methodSignature;

@@ -6,12 +6,12 @@ import java.util.Set;
 
 public class ProjectStructureNode implements Serializable {
 
-    private ProjectStructureNode parent;
-    private CODE_UNIT type;
-    private String name;
-    private String filePath;
+    private final ProjectStructureNode parent;
+    private final CODE_UNIT type;
+    private final String name;
+    private final String filePath;
     private String javaPath;
-    private Set<ProjectStructureNode> children;
+    private final Set<ProjectStructureNode> children;
 
     public ProjectStructureNode(ProjectStructureNode parent, CODE_UNIT type, String name, String filePath, String javaPath) {
         this.parent = parent;

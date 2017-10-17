@@ -11,12 +11,10 @@ import java.io.InputStream;
 
 public class ProjectParser {
 
-    private String sourceProjectPath;
-    private ProjectStructureNode sourceFilesTree;
-    private ProjectStructureNode testFilesTree;
+    private final ProjectStructureNode sourceFilesTree;
+    private final ProjectStructureNode testFilesTree;
 
     public ProjectParser(String sourceProjectPath) {
-        this.sourceProjectPath = sourceProjectPath;
         DirectoryScanner scanner = new DirectoryScanner();
         sourceFilesTree = scanner.scan(sourceProjectPath + "/src");
         testFilesTree = scanner.scan(sourceProjectPath + "/test");

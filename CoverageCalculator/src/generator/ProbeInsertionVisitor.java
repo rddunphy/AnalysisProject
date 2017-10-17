@@ -11,7 +11,7 @@ import probes.ProbeFactory;
 
 import java.util.*;
 
-public class ProbeInsertionVisitor extends VoidVisitorAdapter {
+class ProbeInsertionVisitor extends VoidVisitorAdapter {
 
     private Statement generateProbeCall(Probe probe) {
         String probeCall = "TraceLogger.getInstance().logProbe(" + probe.getId() + ");";
@@ -25,17 +25,11 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
     }
 
     private boolean isCompoundStatement(Statement stmt) {
-        if (stmt instanceof IfStmt || stmt instanceof ForStmt) { // TODO
-            return true;
-        }
-        return false;
+        return stmt instanceof IfStmt || stmt instanceof ForStmt;
     }
 
     private boolean isTerminatingStatement(Statement stmt) {
-        if (stmt instanceof ReturnStmt || stmt instanceof ThrowStmt) { // TODO
-            return true;
-        }
-        return false;
+        return stmt instanceof ReturnStmt || stmt instanceof ThrowStmt;
     }
 
     private Collection<BlockStmt> getBlocksFromCompoundStatement(Statement stmt) {
@@ -43,7 +37,7 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
         if (stmt instanceof IfStmt) {
             IfStmt ifStmt = stmt.asIfStmt();
             blocks.add(ifStmt.getThenStmt().asBlockStmt());
-            if (ifStmt.hasElseBlock()) {
+            if (ifStmt.hasElseBlock() && ifStmt.getElseStmt().isPresent()) {
                 Statement elseStmt = ifStmt.getElseStmt().get();
                 if (isCompoundStatement(elseStmt)) {
                     blocks.addAll(getBlocksFromCompoundStatement(elseStmt));

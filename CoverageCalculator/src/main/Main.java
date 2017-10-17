@@ -2,7 +2,6 @@ package main;
 
 import generator.DirectoryCleaner;
 import generator.ProjectGenerator;
-import org.junit.runner.JUnitCore;
 
 import java.io.IOException;
 

@@ -11,10 +11,10 @@ import java.util.List;
 
 public class TraceLogger {
 
-    private static TraceLogger instance = new TraceLogger();
+    private static final TraceLogger instance = new TraceLogger();
 
     private Map<Long, Probe> probeMap;
-    private List<Probe> trace;
+    private final List<Probe> trace;
 
     private TraceLogger() {
         trace = new ArrayList<>();
@@ -28,8 +28,7 @@ public class TraceLogger {
     private Map<Long, Probe> deserialiseProbeMap() throws IOException, ClassNotFoundException {
         try (InputStream streamIn = new FileInputStream("../Generated/ser/probes.ser");
              ObjectInputStream objectinputstream = new ObjectInputStream(streamIn)) {
-            Map<Long, Probe> probes = (Map<Long, Probe>) objectinputstream.readObject();
-            return probes;
+            return (Map<Long, Probe>) objectinputstream.readObject();
         }
     }
 

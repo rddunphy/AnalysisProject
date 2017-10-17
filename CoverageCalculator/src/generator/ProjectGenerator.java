@@ -18,8 +18,8 @@ import static parser.ProjectParser.getCompilationUnitFromFile;
 
 public class ProjectGenerator {
 
-    private String sourceProjectPath;
-    private String generatedProjectPath;
+    private final String sourceProjectPath;
+    private final String generatedProjectPath;
 
     private static final String templatePath = "CoverageCalculator/templates";
     private ProbeInsertionVisitor probeInsertionVisitor;
@@ -49,18 +49,20 @@ public class ProjectGenerator {
 
     private void serialiseData(Object data, String name) throws IOException {
         File file = new File(generatedProjectPath + "/ser/" + name + ".ser");
-        file.getParentFile().mkdirs();
-        try (FileOutputStream fout = new FileOutputStream(file, true);
-             ObjectOutputStream oos = new ObjectOutputStream(fout)) {
-            oos.writeObject(data);
+        if (file.getParentFile().exists() || file.getParentFile().mkdirs()) {
+            try (FileOutputStream out = new FileOutputStream(file, true);
+                 ObjectOutputStream oos = new ObjectOutputStream(out)) {
+                oos.writeObject(data);
+            }
         }
     }
 
     private void writeCompilationUnitToFile(CompilationUnit cu, String filePath) throws IOException {
         String source = cu.toString();
         File file = new File(filePath);
-        file.getParentFile().mkdirs();
-        Files.write(file.toPath(), source.getBytes(StandardCharsets.UTF_8));
+        if (file.getParentFile().exists() || file.getParentFile().mkdirs()) {
+            Files.write(file.toPath(), source.getBytes(StandardCharsets.UTF_8));
+        }
     }
 
     private void copySourceFile(ProjectStructureNode node) throws IOException {
@@ -73,19 +75,16 @@ public class ProjectGenerator {
     }
 
     private void generateTestRunner(Collection<ProjectStructureNode> nodes) throws IOException {
-        String filePath = templatePath + "/TestCoverageRunner.java";
-        CompilationUnit cu = getCompilationUnitFromFile(filePath);
-        ClassOrInterfaceDeclaration c = getContainedClass(filePath, cu);
+        String testRunnerPath = templatePath + "/TestCoverageRunner.java";
+        CompilationUnit cu = getCompilationUnitFromFile(testRunnerPath);
         List<String> testClasses = new ArrayList<>();
         for (ProjectStructureNode node : nodes) {
-            String path = node.getJavaPath();
-            path += ".class";
-            testClasses.add(path);
+            testClasses.add(node.getJavaPath() + ".class");
         }
-        StringBuilder builder = new StringBuilder("@Suite.SuiteClasses({");
-        builder.append(String.join(", ", testClasses));
-        builder.append("})");
-        AnnotationExpr annotation = JavaParser.parseAnnotation(builder.toString());
+        ClassOrInterfaceDeclaration c = getContainedClass(testRunnerPath, cu);
+        String str = "@Suite.SuiteClasses({" + String.join(", ", testClasses) + "})";
+        AnnotationExpr annotation = JavaParser.parseAnnotation(str);
+        assert c != null;
         c.addAnnotation(annotation);
         writeCompilationUnitToFile(cu, generatedProjectPath + "/test/TestCoverageRunner.java");
     }
@@ -101,10 +100,7 @@ public class ProjectGenerator {
         String className = filePath.substring(filePath.lastIndexOf("/") + 1);
         className = className.substring(0, className.indexOf("."));
         Optional<ClassOrInterfaceDeclaration> o = cu.getClassByName(className);
-        if (o.isPresent()) {
-            return o.get();
-        }
-        return null;
+        return o.orElse(null);
     }
 
 }

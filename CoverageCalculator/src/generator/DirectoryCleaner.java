@@ -1,7 +1,5 @@
 package generator;
 
-import main.Main;
-
 import java.io.File;
 
 public class DirectoryCleaner {
@@ -19,11 +17,14 @@ public class DirectoryCleaner {
     }
 
     private static void deleteDirectory(File file) {
-        if (file.isDirectory()) {
-            for (File f : file.listFiles()) {
+        File[] files = file.listFiles();
+        if (files != null) {
+            for (File f : files) {
                 deleteDirectory(f);
             }
         }
-        file.delete();
+        if (file.exists() && ! file.delete()) {
+            System.out.println("Problem deleting file? " + file.getPath());
+        }
     }
 }

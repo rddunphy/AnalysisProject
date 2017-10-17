@@ -6,17 +6,14 @@ import com.github.javaparser.ast.CompilationUnit;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-public class DirectoryScanner {
+class DirectoryScanner {
 
     private ProjectStructureNode tree;
 
     public ProjectStructureNode scan(String root) {
-        return scan(new File(root));
-    }
-
-    public ProjectStructureNode scan(File root) {
-        tree = null;//new ProjectStructureNode(null, CODE_UNIT.SOURCE_DIR, "root", root.getPath(), "");
-        scan("", root, tree);
+        File file = new File(root);
+        tree = null;
+        scan("", file, tree);
         return tree;
     }
 
