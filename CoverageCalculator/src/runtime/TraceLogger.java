@@ -1,7 +1,6 @@
 package runtime;
 
 import probes.BlockEndProbe;
-import probes.MethodStartProbe;
 import probes.Probe;
 import probes.ProbeFactory;
 
@@ -85,26 +84,8 @@ public class TraceLogger {
         }
     }
 
-
     private String formatPercentage(double d) {
         return String.format("%.1f%%", d * 100);
-    }
-
-    public double getMethodCoverage() {
-        Set<String> allMethodSignatures = new HashSet<>();
-        Set<String> visitedMethodSignatures = new HashSet<>();
-        for (Probe probe : probeMap.values()) {
-            if (probe instanceof MethodStartProbe) {
-                allMethodSignatures.add(probe.getMethodSignature());
-            }
-        }
-        for (Probe probe : trace) {
-            if (probe instanceof MethodStartProbe) {
-                visitedMethodSignatures.add(probe.getMethodSignature());
-            }
-        }
-        double coverage = visitedMethodSignatures.size();
-        return coverage / allMethodSignatures.size();
     }
 
 }

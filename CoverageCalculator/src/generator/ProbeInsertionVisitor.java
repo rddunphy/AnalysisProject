@@ -6,8 +6,6 @@ import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import probes.BlockEndProbe;
-import probes.MethodStartProbe;
 import probes.Probe;
 import probes.ProbeFactory;
 
@@ -18,12 +16,6 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
     private Statement generateProbeCall(Probe probe) {
         String probeCall = "TraceLogger.getInstance().logProbe(" + probe.getId() + ");";
         return JavaParser.parseStatement(probeCall);
-    }
-
-    private void insertMethodStartProbe(BlockStmt body, String name) {
-        Probe probe = ProbeFactory.createMethodStartProbe(name);
-        Statement stmt = generateProbeCall(probe);
-        body.addStatement(0, stmt);
     }
 
     private void insertBlockEndProbe(BlockStmt block, String name, int nStatements) {
@@ -86,11 +78,6 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
         block.setStatements(modified.getStatements());
     }
 
-    private void insertProbesIntoMethod(BlockStmt body, String name) {
-        insertProbes(body, name);
-        insertMethodStartProbe(body, name);
-    }
-
     public void visit(MethodDeclaration method, Object arg) {
         Optional<BlockStmt> o = method.getBody();
         if (!o.isPresent()) {
@@ -98,12 +85,12 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
         }
         BlockStmt body = o.get();
         String signature = method.getSignature().asString();
-        insertProbesIntoMethod(body, signature);
+        insertProbes(body, signature);
     }
 
     public void visit(ConstructorDeclaration constructor, Object arg) {
         BlockStmt body = constructor.getBody();
         String signature = constructor.getSignature().asString();
-        insertProbesIntoMethod(body, signature);
+        insertProbes(body, signature);
     }
 }

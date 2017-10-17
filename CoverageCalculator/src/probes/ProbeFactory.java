@@ -13,12 +13,6 @@ public class ProbeFactory {
         nextProbeId++;
     }
 
-    public static Probe createMethodStartProbe(String methodSignature) {
-        Probe probe = new MethodStartProbe(nextProbeId, methodSignature);
-        storeProbe(probe);
-        return probe;
-    }
-
     public static Probe createBlockEndProbe(String methodSignature, int nStatements) {
         Probe probe = new BlockEndProbe(nextProbeId, methodSignature, nStatements);
         storeProbe(probe);

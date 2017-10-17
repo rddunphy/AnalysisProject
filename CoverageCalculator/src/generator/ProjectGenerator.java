@@ -7,7 +7,6 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import parser.CODE_UNIT;
 import parser.ProjectParser;
 import parser.ProjectStructureNode;
-import probes.Probe;
 import probes.ProbeFactory;
 
 import java.io.*;
