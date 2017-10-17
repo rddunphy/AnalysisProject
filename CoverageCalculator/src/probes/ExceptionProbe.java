@@ -5,7 +5,7 @@ public class ExceptionProbe extends Probe {
     private Exception e;
 
     public ExceptionProbe(Probe probe, Exception e) {
-        super(probe.getId(), probe.getType(), probe.getMethodSignature(), probe.getStatementCount());
+        super(probe.getId(), probe.getMethodSignature());
         this.e = e;
     }
 

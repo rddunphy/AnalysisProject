@@ -6,11 +6,10 @@ import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.github.javaparser.metamodel.StatementMetaModel;
-import probes.PROBE_TYPE;
+import probes.BlockEndProbe;
+import probes.MethodStartProbe;
 import probes.Probe;
 
-import javax.swing.plaf.nimbus.State;
 import java.util.*;
 
 public class ProbeInsertionVisitor extends VoidVisitorAdapter {
@@ -18,8 +17,7 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
     private long nextProbeId = 0;
     private Map<Long, Probe> probes = new HashMap<>();
 
-    private Statement generateProbeCall(PROBE_TYPE type, String name, int nStatements) {
-        Probe probe = new Probe(nextProbeId, type, name, nStatements);
+    private Statement generateProbeCall(Probe probe) {
         String probeCall = "TraceLogger.getInstance().logProbe(" + nextProbeId + ");";
         Statement stmt = JavaParser.parseStatement(probeCall);
         probes.put(nextProbeId, probe);
@@ -28,12 +26,14 @@ public class ProbeInsertionVisitor extends VoidVisitorAdapter {
     }
 
     private void insertMethodStartProbe(BlockStmt body, String name) {
-        Statement stmt = generateProbeCall(PROBE_TYPE.METHOD_START, name, 0);
+        Probe probe = new MethodStartProbe(nextProbeId, name);
+        Statement stmt = generateProbeCall(probe);
         body.addStatement(0, stmt);
     }
 
     private void insertBlockEndProbe(BlockStmt block, String name, int nStatements) {
-        Statement stmt = generateProbeCall(PROBE_TYPE.BLOCK_END, name, nStatements);
+        Probe probe = new BlockEndProbe(nextProbeId, name, nStatements);
+        Statement stmt = generateProbeCall(probe);
         block.addStatement(stmt);
     }
 

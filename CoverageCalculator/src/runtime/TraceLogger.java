@@ -1,6 +1,6 @@
 package runtime;
 
-import probes.PROBE_TYPE;
+import probes.MethodStartProbe;
 import probes.Probe;
 import probes.ExceptionProbe;
 
@@ -52,12 +52,12 @@ public class TraceLogger {
         Set<String> allMethodSignatures = new HashSet<>();
         Set<String> visitedMethodSignatures = new HashSet<>();
         for (Probe probe : probeMap.values()) {
-            if (probe.getType() == PROBE_TYPE.METHOD_START) {
+            if (probe instanceof MethodStartProbe) {
                 allMethodSignatures.add(probe.getMethodSignature());
             }
         }
         for (Probe probe : trace) {
-            if (probe.getType() == PROBE_TYPE.METHOD_START) {
+            if (probe instanceof MethodStartProbe) {
                 visitedMethodSignatures.add(probe.getMethodSignature());
             }
         }
