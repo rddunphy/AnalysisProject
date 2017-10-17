@@ -1,6 +1,9 @@
 package parser;
 
+import runtime.Coverage;
+
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +15,7 @@ public class ProjectStructureNode implements Serializable {
     private final String filePath;
     private String javaPath;
     private final Set<ProjectStructureNode> children;
+    private Coverage coverage;
 
     public ProjectStructureNode(ProjectStructureNode parent, CODE_UNIT type, String name, String filePath, String javaPath) {
         this.parent = parent;
@@ -20,6 +24,7 @@ public class ProjectStructureNode implements Serializable {
         this.filePath = filePath;
         this.javaPath = javaPath;
         this.children = new HashSet<>();
+        this.coverage = null;
     }
 
     public ProjectStructureNode getParent() {
@@ -50,8 +55,20 @@ public class ProjectStructureNode implements Serializable {
         children.add(node);
     }
 
+    public void addChildren(Collection<ProjectStructureNode> nodes) {
+        children.addAll(nodes);
+    }
+
     public CODE_UNIT getType() {
         return type;
+    }
+
+    public Coverage getCoverage() {
+        return coverage;
+    }
+
+    public void setCoverage(Coverage coverage) {
+        this.coverage = coverage;
     }
 
     public Set<ProjectStructureNode> getAllNodesOfType(CODE_UNIT type) {

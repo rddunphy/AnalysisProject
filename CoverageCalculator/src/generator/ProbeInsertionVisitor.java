@@ -14,12 +14,12 @@ import java.util.*;
 class ProbeInsertionVisitor extends VoidVisitorAdapter {
 
     private Statement generateProbeCall(Probe probe) {
-        String probeCall = "TraceLogger.getInstance().logProbe(" + probe.getId() + ");";
+        String probeCall = "Trace.getInstance().logProbe(" + probe.getId() + ");";
         return JavaParser.parseStatement(probeCall);
     }
 
-    private void insertBlockEndProbe(BlockStmt block, String name, int nStatements) {
-        Probe probe = ProbeFactory.createBlockEndProbe(name, nStatements);
+    private void insertBlockEndProbe(BlockStmt block, String signature, int nStatements) {
+        Probe probe = ProbeFactory.createBlockEndProbe(signature, nStatements);
         Statement stmt = generateProbeCall(probe);
         block.addStatement(stmt);
     }
@@ -49,25 +49,25 @@ class ProbeInsertionVisitor extends VoidVisitorAdapter {
         return blocks;
     }
 
-    private void insertProbes(BlockStmt block, String name) {
+    private void insertProbes(BlockStmt block, String signature) {
         NodeList<Statement> statements = new NodeList<>(block.getStatements());
         int n = 0;
         BlockStmt modified = new BlockStmt();
         for (Statement stmt : statements) {
             n++;
             if (isCompoundStatement(stmt) || isTerminatingStatement(stmt)) {
-                insertBlockEndProbe(modified, name, n);
+                insertBlockEndProbe(modified, signature, n);
                 n = 0;
             }
             if (isCompoundStatement(stmt)) {
                 for (BlockStmt b : getBlocksFromCompoundStatement(stmt)) {
-                    insertProbes(b, name);
+                    insertProbes(b, signature);
                 }
             }
             modified.addStatement(stmt);
         }
         if (n > 0) {
-            insertBlockEndProbe(modified, name, n);
+            insertBlockEndProbe(modified, signature, n);
         }
         block.setStatements(modified.getStatements());
     }
@@ -78,13 +78,17 @@ class ProbeInsertionVisitor extends VoidVisitorAdapter {
             return;
         }
         BlockStmt body = o.get();
-        String signature = method.getSignature().asString();
+        assert arg instanceof String;
+        String javaPath = (String) arg;
+        String signature = javaPath + "." + method.getSignature().asString();
         insertProbes(body, signature);
     }
 
     public void visit(ConstructorDeclaration constructor, Object arg) {
         BlockStmt body = constructor.getBody();
-        String signature = constructor.getSignature().asString();
+        assert arg instanceof String;
+        String javaPath = (String) arg;
+        String signature = javaPath + "." + constructor.getSignature().asString();
         insertProbes(body, signature);
     }
 }

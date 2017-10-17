@@ -4,10 +4,7 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.comments.Comment;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class ProjectParser {
 
@@ -17,6 +14,7 @@ public class ProjectParser {
     public ProjectParser(String sourceProjectPath) {
         DirectoryScanner scanner = new DirectoryScanner();
         sourceFilesTree = scanner.scan(sourceProjectPath + "/src");
+        addMethodsToSourceFilesTree();
         testFilesTree = scanner.scan(sourceProjectPath + "/test");
     }
 
@@ -30,6 +28,19 @@ public class ProjectParser {
             comment.remove();
         }
         return cu;
+    }
+
+    private void addMethodsToSourceFilesTree() {
+        for (ProjectStructureNode node : sourceFilesTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
+            try {
+                CompilationUnit cu = JavaParser.parse(new File(node.getFilePath()));
+                MethodNodeVisitor visitor = new MethodNodeVisitor(node);
+                cu.accept(visitor, null);
+                node.addChildren(visitor.getNodes());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public ProjectStructureNode getTestFiles() {

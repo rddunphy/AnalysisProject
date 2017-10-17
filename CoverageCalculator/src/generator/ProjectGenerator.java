@@ -68,8 +68,8 @@ public class ProjectGenerator {
     private void copySourceFile(ProjectStructureNode node) throws IOException {
         CompilationUnit cu = ProjectParser.getCompilationUnitFromFile(node.getFilePath());
         String sourceFilePath = node.getFilePath();
-        cu.addImport("runtime.TraceLogger");
-        cu.accept(probeInsertionVisitor, null);
+        cu.addImport("runtime.Trace");
+        cu.accept(probeInsertionVisitor, node.getJavaPath());
         String path = generatedProjectPath + sourceFilePath.substring(sourceFilePath.indexOf("/"));
         writeCompilationUnitToFile(cu, path);
     }
