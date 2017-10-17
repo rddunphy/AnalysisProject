@@ -11,7 +11,7 @@ public class DirectoryCleaner {
         deleteDirectory(generatedProject + "/test");
     }
 
-    private static void deleteDirectory(String path) {
+    public static void deleteDirectory(String path) {
         File file = new File(path);
         deleteDirectory(file);
     }
@@ -27,4 +27,5 @@ public class DirectoryCleaner {
             System.out.println("Problem deleting file? " + file.getPath());
         }
     }
+
 }

@@ -11,16 +11,17 @@ class DirectoryScanner {
     private ProjectStructureNode tree;
 
     public ProjectStructureNode scan(String root) {
+        this.tree = null;
         File file = new File(root);
-        tree = null;
-        scan("", file, tree);
+        scan("", file, null);
         return tree;
     }
 
     private void scan(String path, File file, ProjectStructureNode parent) {
-        if (file.isDirectory()) {
-                ProjectStructureNode node = new ProjectStructureNode(parent, CODE_UNIT.PACKAGE, file.getName(), file.getPath(), "");
-            for (File childFile : file.listFiles()) {
+        File[] files = file.listFiles();
+        if (files != null) { // file is a directory
+            ProjectStructureNode node = new ProjectStructureNode(parent, CODE_UNIT.PACKAGE, file.getName(), file.getPath(), "");
+            for (File childFile : files) {
                 scan(path + "/" + childFile.getName(), childFile, node);
             }
             if (!node.getChildren().isEmpty()) {

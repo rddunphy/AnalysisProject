@@ -1,6 +1,7 @@
 package runtime;
 
 import j2html.tags.ContainerTag;
+import parser.ProjectStructureNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +12,21 @@ import java.util.Map;
 import static j2html.TagCreator.*;
 
 class ReportFileWriter {
+
+    public void generatePage(ProjectStructureNode node, String path) {
+        double statementCoverage = Coverage.calculateCoverage(node.getCoverage().getStatementCoverage());
+        String html = html(
+                head().with(
+                        title("Coverage report")
+                ),
+                body().with(
+                        h1(node.getName() + " (" + node.getJavaPath() + ")"),
+                        p("Statement coverage: " + formatPercentage(statementCoverage))//,
+                        //each(methods.entrySet(), entry -> getMethodDiv(entry.getKey(), entry.getValue()))
+                )
+        ).render();
+        writeReportFile(html, path);
+    }
 
     public void generateClassPage(String className, double classCoverage, Map<String, Double> methods, String path) {
         String html = html(
