@@ -1,39 +1,58 @@
 package parser;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
+
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class DirectoryScanner {
 
-    private ProjectStructureTreeNode tree;
+    private ProjectStructureNode tree;
 
-    public DirectoryScanner() {
-        tree = new ProjectStructureTreeNode(null, CODE_UNIT.PROJECT,"root", "");
-    }
-
-    public ProjectStructureTreeNode scan(String root) {
+    public ProjectStructureNode scan(String root) {
         return scan(new File(root));
     }
 
-    public ProjectStructureTreeNode scan(File root) {
-        return scan("", root, tree);
+    public ProjectStructureNode scan(File root) {
+        tree = null;//new ProjectStructureNode(null, CODE_UNIT.SOURCE_DIR, "root", root.getPath(), "");
+        scan("", root, tree);
+        return tree;
     }
 
-    private ProjectStructureTreeNode scan(String path, File file, ProjectStructureTreeNode node) {
+    private void scan(String path, File file, ProjectStructureNode parent) {
         if (file.isDirectory()) {
-            ProjectStructureTreeNode childNode = new ProjectStructureTreeNode(node, CODE_UNIT.PACKAGE, file.getName(), file.getPath());
-            for (File child : file.listFiles()) {
-                scan(path + "/" + child.getName(), child, childNode);
+                ProjectStructureNode node = new ProjectStructureNode(parent, CODE_UNIT.PACKAGE, file.getName(), file.getPath(), "");
+            for (File childFile : file.listFiles()) {
+                scan(path + "/" + childFile.getName(), childFile, node);
             }
-            if (!childNode.getChildren().isEmpty()) {
-                node.addChild(childNode);
+            if (!node.getChildren().isEmpty()) {
+                for (ProjectStructureNode child : node.getChildren()) {
+                    if (node.getJavaPath().equals("") && child.getJavaPath().contains(".")) {
+                        node.setJavaPath(child.getJavaPath().substring(0, child.getJavaPath().lastIndexOf(".")));
+                    }
+                }
+            }
+            if (parent == null) {
+                tree = node;
+            } else {
+                parent.addChild(node);
             }
         } else {
             if (path.endsWith(".java")) {
                 String unitName = file.getName().substring(0, file.getName().lastIndexOf("."));
-                ProjectStructureTreeNode childNode = new ProjectStructureTreeNode(node, CODE_UNIT.CLASS, unitName, file.getPath());
-                node.addChild(childNode);
+                try {
+                    CompilationUnit cu = JavaParser.parse(file);
+                    String javaPath = unitName;
+                    if (cu.getPackageDeclaration().isPresent()) {
+                        javaPath = cu.getPackageDeclaration().get().getNameAsString() + "." + javaPath;
+                    }
+                    ProjectStructureNode childNode = new ProjectStructureNode(parent, CODE_UNIT.CLASS, unitName, file.getPath(), javaPath);
+                    parent.addChild(childNode);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         }
-        return tree;
     }
 }

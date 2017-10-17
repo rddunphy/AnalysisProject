@@ -3,9 +3,10 @@ package generator;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import parser.CODE_UNIT;
 import parser.ProjectParser;
+import parser.ProjectStructureNode;
 import probes.Probe;
 
 import java.io.*;
@@ -32,13 +33,13 @@ public class ProjectGenerator {
         ProjectParser parser = new ProjectParser(sourceProjectPath);
         probeInsertionVisitor = new ProbeInsertionVisitor();
         try {
-            for (Map.Entry<String, CompilationUnit> entry : parser.getAllSourceFiles().entrySet()) {
-                copySourceFile(entry.getKey(), entry.getValue());
+            for (ProjectStructureNode node : parser.getSourceFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
+                copySourceFile(node);
             }
-            for (Map.Entry<String, CompilationUnit> entry : parser.getAllTestFiles().entrySet()) {
-                copyTestFile(entry.getKey(), entry.getValue());
+            for (ProjectStructureNode node : parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
+                copyTestFile(node);
             }
-            generateTestRunner(parser.getAllTestFiles().keySet());
+            generateTestRunner(parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS));
             serialiseProbes();
         } catch (IOException e) {
             System.out.println(e);
@@ -63,24 +64,23 @@ public class ProjectGenerator {
         Files.write(file.toPath(), source.getBytes(StandardCharsets.UTF_8));
     }
 
-    private void copySourceFile(String sourceFilePath, CompilationUnit cu) throws IOException {
+    private void copySourceFile(ProjectStructureNode node) throws IOException {
+        CompilationUnit cu = ProjectParser.getCompilationUnitFromFile(node.getFilePath());
+        String sourceFilePath = node.getFilePath();
         cu.addImport("runtime.TraceLogger");
         cu.accept(probeInsertionVisitor, null);
         String path = generatedProjectPath + sourceFilePath.substring(sourceFilePath.indexOf("/"));
         writeCompilationUnitToFile(cu, path);
     }
 
-    private void generateTestRunner(Collection<String> testClassFiles) throws IOException {
+    private void generateTestRunner(Collection<ProjectStructureNode> nodes) throws IOException {
         String filePath = templatePath + "/TestCoverageRunner.java";
         CompilationUnit cu = getCompilationUnitFromFile(filePath);
         ClassOrInterfaceDeclaration c = getContainedClass(filePath, cu);
         List<String> testClasses = new ArrayList<>();
-        for (String path : testClassFiles) {
-            path = path.substring(0, path.indexOf("."));
+        for (ProjectStructureNode node : nodes) {
+            String path = node.getJavaPath();
             path += ".class";
-            path = path.substring(path.indexOf("/test/"));
-            path = path.replace("/test/", "");
-            path = path.replaceAll("/", ".");
             testClasses.add(path);
         }
         StringBuilder builder = new StringBuilder("@Suite.SuiteClasses({");
@@ -91,7 +91,9 @@ public class ProjectGenerator {
         writeCompilationUnitToFile(cu, generatedProjectPath + "/test/TestCoverageRunner.java");
     }
 
-    private void copyTestFile(String testFilePath, CompilationUnit cu) throws IOException {
+    private void copyTestFile(ProjectStructureNode node) throws IOException {
+        CompilationUnit cu = ProjectParser.getCompilationUnitFromFile(node.getFilePath());
+        String testFilePath = node.getFilePath();
         String path = generatedProjectPath + testFilePath.substring(testFilePath.indexOf("/"));
         writeCompilationUnitToFile(cu, path);
     }

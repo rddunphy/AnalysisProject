@@ -8,15 +8,18 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ProjectParser {
 
     private String sourceProjectPath;
+    private ProjectStructureNode sourceFilesTree;
+    private ProjectStructureNode testFilesTree;
 
     public ProjectParser(String sourceProjectPath) {
         this.sourceProjectPath = sourceProjectPath;
+        DirectoryScanner scanner = new DirectoryScanner();
+        sourceFilesTree = scanner.scan(sourceProjectPath + "/src");
+        testFilesTree = scanner.scan(sourceProjectPath + "/test");
     }
 
     public static CompilationUnit getCompilationUnitFromFile(String filePath) throws IOException {
@@ -31,28 +34,12 @@ public class ProjectParser {
         return cu;
     }
 
-    public Map<String, CompilationUnit> getAllTestFiles() {
-        String root = sourceProjectPath + "/test";
-        return getAllJavaFiles(root);
+    public ProjectStructureNode getTestFiles() {
+        return testFilesTree;
     }
 
-    public Map<String, CompilationUnit> getAllSourceFiles() {
-        String root = sourceProjectPath + "/src";
-        return getAllJavaFiles(root);
+    public ProjectStructureNode getSourceFiles() {
+        return sourceFilesTree;
     }
 
-    public Map<String, CompilationUnit> getAllJavaFiles(String root) {
-        Map<String, CompilationUnit> map = new HashMap<>();
-        DirectoryScanner scanner = new DirectoryScanner();
-        ProjectStructureTreeNode fileTree = scanner.scan(root);
-        for (ProjectStructureTreeNode classNode : fileTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
-            String path = classNode.getPath();
-            try {
-                map.put(path, getCompilationUnitFromFile(path));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return map;
-    }
 }
