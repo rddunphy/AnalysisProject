@@ -5,7 +5,9 @@ import parser.CODE_UNIT;
 import parser.ProjectStructureNode;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static j2html.TagCreator.*;
@@ -19,8 +21,14 @@ public class ReportPageGenerator {
     }
 
     public void generatePage(String projectName, ProjectStructureNode node, String path) {
-        String pageName = (node.getType() == CODE_UNIT.SOURCE_DIR) ? projectName : node.getJavaPath();
-        String html = html(
+        ContainerTag pageName;
+        if (node.getType() == CODE_UNIT.SOURCE_DIR) {
+            pageName = span(projectName);
+        } else {
+            boolean isIndexPage = node.getType() != CODE_UNIT.CLASS;
+            pageName = getBreadCrumbs(projectName, node.getJavaPath(), isIndexPage);
+        }
+        ContainerTag html = html(
                 head().with(
                         title(projectName + " - coverage report")
                 ),
@@ -29,13 +37,43 @@ public class ReportPageGenerator {
                         getCoverageDiv(node.getCoverage()),
                         each(node.getChildren(), child -> getSectionDiv(child))
                 )
-        ).render();
-        writer.writeReportFile(html, path);
+        );
+        writer.writeReportFile(document(html), path);
+    }
+
+    private ContainerTag getBreadCrumbs(String projectName, String javaPath, boolean isIndexPage) {
+        List<ContainerTag> linkTags = new ArrayList<>();
+        String[] levels = javaPath.split("\\.");
+        String href;
+        int offset = isIndexPage ? 1 : 2;
+        for (int i = 0; i < levels.length - 1; i++) {
+            href = repeatString("../", levels.length - offset - i) + "index.html";
+            linkTags.add(a(levels[i]).withHref(href));
+        }
+        href = repeatString("../", levels.length - offset + 1) + "index.html";
+        return span(
+                a(projectName).withHref(href),
+                text(" - "),
+                each(linkTags, l -> span(l, text("."))),
+                text(levels[levels.length - 1])
+        );
+    }
+
+    private String repeatString(String s, int n) {
+        return new String(new char[n]).replace("\0", s);
     }
 
     private ContainerTag getSectionDiv(ProjectStructureNode node) {
+        ContainerTag sectionName;
+        if (node.getType() == CODE_UNIT.METHOD) {
+            sectionName = span(node.getJavaPath());
+        } else if (node.getType() == CODE_UNIT.CLASS) {
+            sectionName = a(node.getJavaPath()).withHref(node.getName() + ".html");
+        } else {
+            sectionName = a(node.getJavaPath()).withHref((node.getName() + "/index.html"));
+        }
         return div(
-                h2(node.getJavaPath()),
+                h2(sectionName),
                 getCoverageDiv(node.getCoverage())
         );
     }
@@ -65,13 +103,13 @@ public class ReportPageGenerator {
         int greenWidth = (int) Math.round(coverage * totalWidth);
         int redWidth = totalWidth - greenWidth;
         return div(
-                div().withStyle("width: " + greenWidth + "; height: 12px; background-color: green; display: inline-block;"),
+                div().withStyle("width: " + greenWidth + "px; height: 12px; background-color: green; display: inline-block;"),
                 div().withStyle("width: " + redWidth + "px; height: 12px; background-color: red; display: inline-block;")
         ).withStyle("display: inline-block;");
     }
 
     private String formatCoveragePoint(Point p, String label) {
-        double d = Coverage.calculateCoverage(p);
-        return String.format("%.1f%% of %s (%d of %d)", d * 100, label, p.x, p.y);
+        double d = 100 * Coverage.calculateCoverage(p);
+        return String.format("%.1f%% of %s (%d of %d)", d, label, p.x, p.y);
     }
 }

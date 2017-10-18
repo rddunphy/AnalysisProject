@@ -28,4 +28,10 @@ public class DirectoryCleaner {
         }
     }
 
+    public static void main(String[] args) {
+        String sourceProject = "ExampleApplication";
+        String generatedProject = "Generated";
+        cleanProject(sourceProject, generatedProject);
+    }
+
 }

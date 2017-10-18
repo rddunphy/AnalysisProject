@@ -18,6 +18,7 @@ public class CoverageCalculator {
         }
         coverage.y += n;
     }
+
     private static void addCoverageStatements(Point coverage, Point toAdd) {
         coverage.x += toAdd.x;
         coverage.y += toAdd.y;
