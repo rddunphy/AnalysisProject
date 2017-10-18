@@ -9,7 +9,6 @@ import java.util.Set;
 
 public class ProjectStructureNode implements Serializable {
 
-    private final ProjectStructureNode parent;
     private final CODE_UNIT type;
     private final String name;
     private final String filePath;
@@ -17,18 +16,13 @@ public class ProjectStructureNode implements Serializable {
     private final Set<ProjectStructureNode> children;
     private Coverage coverage;
 
-    public ProjectStructureNode(ProjectStructureNode parent, CODE_UNIT type, String name, String filePath, String javaPath) {
-        this.parent = parent;
+    ProjectStructureNode(CODE_UNIT type, String name, String filePath, String javaPath) {
         this.type = type;
         this.name = name;
         this.filePath = filePath;
         this.javaPath = javaPath;
         this.children = new HashSet<>();
         this.coverage = null;
-    }
-
-    public ProjectStructureNode getParent() {
-        return parent;
     }
 
     public Set<ProjectStructureNode> getChildren() {
@@ -51,11 +45,11 @@ public class ProjectStructureNode implements Serializable {
         this.javaPath = javaPath;
     }
 
-    public void addChild(ProjectStructureNode node) {
+    void addChild(ProjectStructureNode node) {
         children.add(node);
     }
 
-    public void addChildren(Collection<ProjectStructureNode> nodes) {
+    void addChildren(Collection<ProjectStructureNode> nodes) {
         children.addAll(nodes);
     }
 

@@ -30,6 +30,14 @@ public class ProjectParser {
         return cu;
     }
 
+    public ProjectStructureNode getTestFiles() {
+        return testFilesTree;
+    }
+
+    public ProjectStructureNode getSourceFiles() {
+        return sourceFilesTree;
+    }
+
     private void addMethodsToSourceFilesTree() {
         for (ProjectStructureNode node : sourceFilesTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
             try {
@@ -41,14 +49,6 @@ public class ProjectParser {
                 e.printStackTrace();
             }
         }
-    }
-
-    public ProjectStructureNode getTestFiles() {
-        return testFilesTree;
-    }
-
-    public ProjectStructureNode getSourceFiles() {
-        return sourceFilesTree;
     }
 
 }

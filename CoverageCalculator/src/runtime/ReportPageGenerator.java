@@ -5,6 +5,10 @@ import parser.CODE_UNIT;
 import parser.ProjectStructureNode;
 
 import java.awt.Point;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,15 +16,9 @@ import java.util.Map;
 
 import static j2html.TagCreator.*;
 
-public class ReportPageGenerator {
+class ReportPageGenerator {
 
-    private ReportFileWriter writer;
-
-    public ReportPageGenerator() {
-        this.writer = new ReportFileWriter();
-    }
-
-    public void generatePage(String projectName, ProjectStructureNode node, String path) {
+    void generatePage(String projectName, ProjectStructureNode node, String path) {
         ContainerTag pageName;
         if (node.getType() == CODE_UNIT.SOURCE_DIR) {
             pageName = span(projectName);
@@ -35,10 +33,10 @@ public class ReportPageGenerator {
                 body().with(
                         h1(pageName),
                         getCoverageDiv(node.getCoverage()),
-                        each(node.getChildren(), child -> getSectionDiv(child))
+                        each(node.getChildren(), this::getSectionDiv)
                 )
         );
-        writer.writeReportFile(document(html), path);
+        writeReportFile(html, path);
     }
 
     private ContainerTag getBreadCrumbs(String projectName, String javaPath, boolean isIndexPage) {
@@ -47,10 +45,10 @@ public class ReportPageGenerator {
         String href;
         int offset = isIndexPage ? 1 : 2;
         for (int i = 0; i < levels.length - 1; i++) {
-            href = repeatString("../", levels.length - offset - i) + "index.html";
+            href = repeatUpDirectory(levels.length - offset - i) + "index.html";
             linkTags.add(a(levels[i]).withHref(href));
         }
-        href = repeatString("../", levels.length - offset + 1) + "index.html";
+        href = repeatUpDirectory(levels.length - offset + 1) + "index.html";
         return span(
                 a(projectName).withHref(href),
                 text(" - "),
@@ -59,8 +57,8 @@ public class ReportPageGenerator {
         );
     }
 
-    private String repeatString(String s, int n) {
-        return new String(new char[n]).replace("\0", s);
+    private String repeatUpDirectory(int n) {
+        return new String(new char[n]).replace("\0", "../");
     }
 
     private ContainerTag getSectionDiv(ProjectStructureNode node) {
@@ -111,5 +109,17 @@ public class ReportPageGenerator {
     private String formatCoveragePoint(Point p, String label) {
         double d = 100 * Coverage.calculateCoverage(p);
         return String.format("%.1f%% of %s (%d of %d)", d, label, p.x, p.y);
+    }
+
+    private void writeReportFile(ContainerTag html, String path) {
+        String output = document(html);
+        File file = new File(path);
+        if (file.getParentFile().exists() || file.getParentFile().mkdirs()) {
+            try {
+                Files.write(file.toPath(), output.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

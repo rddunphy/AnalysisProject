@@ -1,8 +1,6 @@
 package runtime;
 
-import parser.CODE_UNIT;
-
-import java.awt.*;
+import java.awt.Point;
 
 public class Coverage {
 
@@ -10,29 +8,29 @@ public class Coverage {
     private final Point methodCoverage;
     private final Point statementCoverage;
 
-    public Coverage() {
+    Coverage() {
         this(new Point(0, 0));
     }
 
-    public Coverage(Point statementCoverage) {
+    Coverage(Point statementCoverage) {
         this.statementCoverage = statementCoverage;
         methodCoverage = new Point(0, 0);
         classCoverage = new Point(0, 0);
     }
 
-    public Point getClassCoverage() {
+    Point getClassCoverage() {
         return classCoverage;
     }
 
-    public Point getMethodCoverage() {
+    Point getMethodCoverage() {
         return methodCoverage;
     }
 
-    public Point getStatementCoverage() {
+    Point getStatementCoverage() {
         return statementCoverage;
     }
 
-    public static double calculateCoverage(Point p) {
+    static double calculateCoverage(Point p) {
         return p.getX() / p.getY();
     }
 }

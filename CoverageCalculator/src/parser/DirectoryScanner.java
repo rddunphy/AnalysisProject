@@ -21,7 +21,7 @@ class DirectoryScanner {
         File[] files = file.listFiles();
         if (files != null) { // file is a directory
             CODE_UNIT type = (parent == null) ? CODE_UNIT.SOURCE_DIR : CODE_UNIT.PACKAGE;
-            ProjectStructureNode node = new ProjectStructureNode(parent, type, file.getName(), file.getPath(), "");
+            ProjectStructureNode node = new ProjectStructureNode(type, file.getName(), file.getPath(), "");
             for (File childFile : files) {
                 scan(path + "/" + childFile.getName(), childFile, node);
             }
@@ -46,7 +46,7 @@ class DirectoryScanner {
                     if (cu.getPackageDeclaration().isPresent()) {
                         javaPath = cu.getPackageDeclaration().get().getNameAsString() + "." + javaPath;
                     }
-                    ProjectStructureNode childNode = new ProjectStructureNode(parent, CODE_UNIT.CLASS, unitName, file.getPath(), javaPath);
+                    ProjectStructureNode childNode = new ProjectStructureNode(CODE_UNIT.CLASS, unitName, file.getPath(), javaPath);
                     parent.addChild(childNode);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

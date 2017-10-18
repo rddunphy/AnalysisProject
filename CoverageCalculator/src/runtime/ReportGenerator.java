@@ -11,11 +11,11 @@ import java.io.ObjectInputStream;
 
 public class ReportGenerator {
     
-    private ReportPageGenerator pageGenerator = new ReportPageGenerator();
+    private final ReportPageGenerator pageGenerator = new ReportPageGenerator();
 
     public void generate() {
         try {
-            ProjectStructureNode tree = new CoverageCalculator().calculate(deserialiseStructure());
+            ProjectStructureNode tree = CoverageCalculator.calculate(deserialiseStructure());
             String rootDir = "../" + tree.getFilePath().replace("/src", "/report");
             DirectoryCleaner.deleteDirectory(rootDir);
             String projectName = tree.getFilePath().substring(0, tree.getFilePath().indexOf("/"));

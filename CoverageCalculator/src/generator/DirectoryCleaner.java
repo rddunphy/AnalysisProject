@@ -23,7 +23,7 @@ public class DirectoryCleaner {
                 deleteDirectory(f);
             }
         }
-        if (file.exists() && ! file.delete()) {
+        if (file.exists() && !file.delete()) {
             System.out.println("Problem deleting file? " + file.getPath());
         }
     }

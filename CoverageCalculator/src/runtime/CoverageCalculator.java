@@ -10,7 +10,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CoverageCalculator {
+class CoverageCalculator {
+
+    static ProjectStructureNode calculate(ProjectStructureNode tree) {
+        Map<Long, Probe> probes = Trace.getInstance().getProbes();
+        List<Probe> trace = Trace.getInstance().getTrace();
+        Map<String, Point> statementCoverages = calculateStatementCoverageForMethods(probes, trace);
+        return calculate(tree, statementCoverages);
+    }
 
     private static void addCoverageStatements(boolean covered, Point coverage, int n) {
         if (covered) {
@@ -49,13 +56,6 @@ public class CoverageCalculator {
             addCoverageStatements(covered.get(probe), coveredStatements.get(method), probe.getStatementCount());
         }
         return coveredStatements;
-    }
-
-    public static ProjectStructureNode calculate(ProjectStructureNode tree) {
-        Map<Long, Probe> probes = Trace.getInstance().getProbes();
-        List<Probe> trace = Trace.getInstance().getTrace();
-        Map<String, Point> statementCoverages = calculateStatementCoverageForMethods(probes, trace);
-        return calculate(tree, statementCoverages);
     }
 
     private static ProjectStructureNode calculate(ProjectStructureNode node, Map<String, Point> statementCoverages) {

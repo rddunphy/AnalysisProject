@@ -11,7 +11,7 @@ import probes.ProbeFactory;
 
 import java.util.*;
 
-class ProbeInsertionVisitor extends VoidVisitorAdapter {
+class ProbeInsertionVisitor extends VoidVisitorAdapter<String> {
 
     private Statement generateProbeCall(Probe probe) {
         String probeCall = "Trace.getInstance().logProbe(" + probe.getId() + ");";
@@ -72,23 +72,19 @@ class ProbeInsertionVisitor extends VoidVisitorAdapter {
         block.setStatements(modified.getStatements());
     }
 
-    public void visit(MethodDeclaration method, Object arg) {
+    public void visit(MethodDeclaration method, String path) {
         Optional<BlockStmt> o = method.getBody();
         if (!o.isPresent()) {
             return;
         }
         BlockStmt body = o.get();
-        assert arg instanceof String;
-        String javaPath = (String) arg;
-        String signature = javaPath + "." + method.getSignature().asString();
+        String signature = path + "." + method.getSignature().asString();
         insertProbes(body, signature);
     }
 
-    public void visit(ConstructorDeclaration constructor, Object arg) {
+    public void visit(ConstructorDeclaration constructor, String path) {
         BlockStmt body = constructor.getBody();
-        assert arg instanceof String;
-        String javaPath = (String) arg;
-        String signature = javaPath + "." + constructor.getSignature().asString();
+        String signature = path + "." + constructor.getSignature().asString();
         insertProbes(body, signature);
     }
 }
