@@ -3,54 +3,56 @@ package runtime;
 import j2html.tags.ContainerTag;
 import parser.ProjectStructureNode;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import static j2html.TagCreator.*;
 
 class ReportFileWriter {
 
     public void generatePage(ProjectStructureNode node, String path) {
-        double statementCoverage = Coverage.calculateCoverage(node.getCoverage().getStatementCoverage());
         String html = html(
                 head().with(
                         title("Coverage report")
                 ),
                 body().with(
                         h1(node.getName() + " (" + node.getJavaPath() + ")"),
-                        p("Statement coverage: " + formatPercentage(statementCoverage))//,
-                        //each(methods.entrySet(), entry -> getMethodDiv(entry.getKey(), entry.getValue()))
+                        getCoverageDiv(node.getCoverage()),
+                        each(node.getChildren(), child -> getSectionDiv(child))
                 )
         ).render();
         writeReportFile(html, path);
     }
 
-    public void generateClassPage(String className, double classCoverage, Map<String, Double> methods, String path) {
-        String html = html(
-                head().with(
-                        title("Coverage report")
-                ),
-                body().with(
-                        h1("Class: " + className),
-                        p("Method coverage: " + formatPercentage(classCoverage)),
-                        each(methods.entrySet(), entry -> getMethodDiv(entry.getKey(), entry.getValue()))
-                )
-        ).render();
-        writeReportFile(html, path);
-    }
-
-    private ContainerTag getMethodDiv(String signature, double coverage) {
+    private ContainerTag getSectionDiv(ProjectStructureNode node) {
         return div(
-                h2("Method: " + signature),
-                p("Coverage: " + formatPercentage(coverage))
+                h2(node.getJavaPath()),
+                getCoverageDiv(node.getCoverage())
         );
     }
 
-    private String formatPercentage(double d) {
-        return String.format("%.1f%%", d * 100);
+    private ContainerTag getCoverageDiv(Coverage coverage) {
+        List<String> lines = new ArrayList<>();
+        lines.add("Statement coverage: " + formateCoveragePoint(coverage.getStatementCoverage()));
+        if (coverage.getMethodCoverage().y > 0) {
+            lines.add("Method coverage: " + formateCoveragePoint(coverage.getMethodCoverage()));
+        }
+        if (coverage.getClassCoverage().y > 0) {
+            lines.add("Class coverage: " + formateCoveragePoint(coverage.getClassCoverage()));
+        }
+        return div(
+                each(lines, line -> p(line))
+        );
+    }
+
+    private String formateCoveragePoint(Point p) {
+        double d = Coverage.calculateCoverage(p);
+        return String.format("%.1f%% (%d of %d)", d * 100, p.x, p.y);
     }
 
     private void writeReportFile(String html, String path) {
