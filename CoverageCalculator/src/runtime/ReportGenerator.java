@@ -11,26 +11,27 @@ import java.io.ObjectInputStream;
 
 public class ReportGenerator {
     
-    private ReportFileWriter writer = new ReportFileWriter();
+    private ReportPageGenerator pageGenerator = new ReportPageGenerator();
 
     public void generate() {
         try {
             ProjectStructureNode tree = new CoverageCalculator().calculate(deserialiseStructure());
             String rootDir = "../" + tree.getFilePath().replace("/src", "/report");
             DirectoryCleaner.deleteDirectory(rootDir);
-            generateHtmlFiles(tree);
+            String projectName = tree.getFilePath().substring(0, tree.getFilePath().indexOf("/"));
+            generateHtmlFiles(projectName, tree);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private void generateHtmlFiles(ProjectStructureNode node) {
+    private void generateHtmlFiles(String projectName, ProjectStructureNode node) {
         if (node.getType() != CODE_UNIT.METHOD) {
             String reportPath = buildReportPath(node.getFilePath(), node.getType() == CODE_UNIT.CLASS);
-            writer.generatePage(node, reportPath);
+            pageGenerator.generatePage(projectName, node, reportPath);
         }
         for (ProjectStructureNode child : node.getChildren()) {
-            generateHtmlFiles(child);
+            generateHtmlFiles(projectName, child);
         }
     }
 

@@ -20,7 +20,8 @@ class DirectoryScanner {
     private void scan(String path, File file, ProjectStructureNode parent) {
         File[] files = file.listFiles();
         if (files != null) { // file is a directory
-            ProjectStructureNode node = new ProjectStructureNode(parent, CODE_UNIT.PACKAGE, file.getName(), file.getPath(), "");
+            CODE_UNIT type = (parent == null) ? CODE_UNIT.SOURCE_DIR : CODE_UNIT.PACKAGE;
+            ProjectStructureNode node = new ProjectStructureNode(parent, type, file.getName(), file.getPath(), "");
             for (File childFile : files) {
                 scan(path + "/" + childFile.getName(), childFile, node);
             }

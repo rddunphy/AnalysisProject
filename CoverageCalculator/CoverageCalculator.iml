@@ -17,19 +17,19 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="com.j2html:j2html:1.2.0" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../javaparser-core-3.4.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../javaparser-core-3.4.2.jar!/" />
         </CLASSES>
         <JAVADOC>
-          <root url="jar://$MODULE_DIR$/../../javaparser-core-3.4.3-javadoc.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../javaparser-core-3.4.2-javadoc.jar!/" />
         </JAVADOC>
         <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../javaparser-core-3.4.3-sources.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../javaparser-core-3.4.2-sources.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" name="com.j2html:j2html:1.2.0" level="project" />
   </component>
 </module>
