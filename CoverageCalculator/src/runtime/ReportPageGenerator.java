@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,20 +21,37 @@ class ReportPageGenerator {
 
     void generatePage(String projectName, ProjectStructureNode node, String path) {
         ContainerTag pageName;
+        boolean isIndexPage = node.getType() != CODE_UNIT.CLASS;
         if (node.getType() == CODE_UNIT.SOURCE_DIR) {
             pageName = span(projectName);
         } else {
-            boolean isIndexPage = node.getType() != CODE_UNIT.CLASS;
             pageName = getBreadCrumbs(projectName, node.getJavaPath(), isIndexPage);
+        }
+        ContainerTag coverageDiv = null;
+        if (node.getCoverage() != null) {
+            coverageDiv = getCoverageDiv(node.getCoverage());
+        }
+        String cssPath;
+        if (node.getJavaPath().equals("")) {
+            cssPath = "style.css";
+        } else {
+            int dirs = node.getJavaPath().split("\\.").length;
+            if (!isIndexPage) {
+                dirs--;
+            }
+            cssPath = repeatUpDirectory(dirs) + "/style.css";
         }
         ContainerTag html = html(
                 head().with(
-                        title(projectName + " - coverage report")
+                        title(projectName + " - coverage report"),
+                        link().withRel("stylesheet").withHref(cssPath)
                 ),
                 body().with(
-                        h1(pageName),
-                        getCoverageDiv(node.getCoverage()),
-                        each(node.getChildren(), this::getSectionDiv)
+                        div(
+                                h1(pageName),
+                                iff(node.getCoverage() != null, coverageDiv),
+                                each(node.getChildren(), this::getSectionDiv)
+                        ).withId("main")
                 )
         );
         writeReportFile(html, path);
@@ -70,6 +88,9 @@ class ReportPageGenerator {
         } else {
             sectionName = a(node.getJavaPath()).withHref((node.getName() + "/index.html"));
         }
+        if (node.getCoverage() == null) {
+            return div(h2(sectionName).withClass("interface"));
+        }
         return div(
                 h2(sectionName),
                 getCoverageDiv(node.getCoverage())
@@ -97,18 +118,16 @@ class ReportPageGenerator {
     }
 
     private ContainerTag getCoverageBar(double coverage) {
-        int totalWidth = 300;
-        int greenWidth = (int) Math.round(coverage * totalWidth);
-        int redWidth = totalWidth - greenWidth;
+        int greenWidth = (int) Math.round(coverage * 300);
         return div(
-                div().withStyle("width: " + greenWidth + "px; height: 12px; background-color: green; display: inline-block;"),
-                div().withStyle("width: " + redWidth + "px; height: 12px; background-color: red; display: inline-block;")
-        ).withStyle("display: inline-block;");
+                div().withStyle("width: " + greenWidth + "px;").withClass("coverageBarGreen")
+        ).withClass("coverageBar");
     }
 
     private String formatCoveragePoint(Point p, String label) {
-        double d = 100 * Coverage.calculateCoverage(p);
-        return String.format("%.1f%% of %s (%d of %d)", d, label, p.x, p.y);
+        double value = 100 * Coverage.calculateCoverage(p);
+        String formattedValue = new DecimalFormat("#.#").format(value);
+        return String.format("%s%% of %s (%d of %d)", formattedValue, label, p.x, p.y);
     }
 
     private void writeReportFile(ContainerTag html, String path) {

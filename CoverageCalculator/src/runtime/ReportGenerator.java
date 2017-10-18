@@ -4,10 +4,11 @@ import generator.DirectoryCleaner;
 import parser.CODE_UNIT;
 import parser.ProjectStructureNode;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class ReportGenerator {
     
@@ -16,12 +17,21 @@ public class ReportGenerator {
     public void generate() {
         try {
             ProjectStructureNode tree = CoverageCalculator.calculate(deserialiseStructure());
-            String rootDir = "../" + tree.getFilePath().replace("/src", "/report");
-            DirectoryCleaner.deleteDirectory(rootDir);
+            tidyReportDirectory(tree);
             String projectName = tree.getFilePath().substring(0, tree.getFilePath().indexOf("/"));
             generateHtmlFiles(projectName, tree);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void tidyReportDirectory(ProjectStructureNode tree) throws IOException {
+        String rootDir = "../" + tree.getFilePath().replace("/src", "/report");
+        DirectoryCleaner.deleteDirectory(rootDir);
+        File source = new File("../CoverageCalculator/templates/style.css");
+        File destination = new File(rootDir + "/style.css");
+        if (destination.getParentFile().exists() || destination.getParentFile().mkdirs()) {
+            Files.copy(source.toPath(), destination.toPath(), REPLACE_EXISTING);
         }
     }
 

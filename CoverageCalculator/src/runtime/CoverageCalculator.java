@@ -65,7 +65,7 @@ class CoverageCalculator {
         if (node.getType() == CODE_UNIT.METHOD) {
             Point statementCoverage = statementCoverages.get(node.getJavaPath());
             if (statementCoverage == null) {
-                node.setCoverage(new Coverage());
+                // File without any statements to cover - e.g. interface method declaration
             } else {
                 Coverage coverage = new Coverage(statementCoverages.get(node.getJavaPath()));
                 node.setCoverage(coverage);
@@ -73,22 +73,30 @@ class CoverageCalculator {
         } else if (node.getType() == CODE_UNIT.CLASS) {
             Coverage coverage = new Coverage();
             for (ProjectStructureNode child : node.getChildren()) {
-                addCoverageStatements(coverage.getStatementCoverage(), child.getCoverage().getStatementCoverage());
-                addCoverageStatements(hasStatementCoverage(child), coverage.getMethodCoverage(), 1);
+                if (child.getCoverage() != null) {
+                    addCoverageStatements(coverage.getStatementCoverage(), child.getCoverage().getStatementCoverage());
+                    addCoverageStatements(hasStatementCoverage(child), coverage.getMethodCoverage(), 1);
+                }
             }
-            node.setCoverage(coverage);
+            if (coverage.getStatementCoverage().y > 0) {
+                node.setCoverage(coverage);
+            }
         } else {
             Coverage coverage = new Coverage();
             for (ProjectStructureNode child : node.getChildren()) {
-                addCoverageStatements(coverage.getStatementCoverage(), child.getCoverage().getStatementCoverage());
-                addCoverageStatements(coverage.getMethodCoverage(), child.getCoverage().getMethodCoverage());
-                if (child.getType() == CODE_UNIT.CLASS) {
-                    addCoverageStatements(hasStatementCoverage(child), coverage.getClassCoverage(), 1);
-                } else {
-                    addCoverageStatements(coverage.getClassCoverage(), child.getCoverage().getClassCoverage());
+                if (child.getCoverage() != null) {
+                    addCoverageStatements(coverage.getStatementCoverage(), child.getCoverage().getStatementCoverage());
+                    addCoverageStatements(coverage.getMethodCoverage(), child.getCoverage().getMethodCoverage());
+                    if (child.getType() == CODE_UNIT.CLASS) {
+                        addCoverageStatements(hasStatementCoverage(child), coverage.getClassCoverage(), 1);
+                    } else {
+                        addCoverageStatements(coverage.getClassCoverage(), child.getCoverage().getClassCoverage());
+                    }
                 }
             }
-            node.setCoverage(coverage);
+            if (coverage.getStatementCoverage().y > 0) {
+                node.setCoverage(coverage);
+            }
         }
         return node;
     }

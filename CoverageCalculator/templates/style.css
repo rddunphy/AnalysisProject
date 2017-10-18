@@ -1,0 +1,51 @@
+#main {
+    width: 900px;
+    position: absolute;
+    top: 50px;
+
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 25px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: royalblue;
+}
+
+.interface {
+    color: gray;
+}
+
+.interface a {
+    color: gray;
+}
+
+.interface a:hover {
+    color: lightgray;
+}
+
+.coverageBar {
+    height: 12px;
+    background-color: red;
+    display: inline-block;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 5px;
+}
+
+.coverageBarGreen {
+    background-color: green;
+    height: 12px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 5px;
+}

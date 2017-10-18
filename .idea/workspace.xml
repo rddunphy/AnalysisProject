@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e792f6d-3515-4c3d-980c-ffa65f97f4fc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportFileWriter.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CoverageCalculator/templates/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/MethodNodeVisitor.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/MethodNodeVisitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectStructureNode.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectStructureNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/Coverage.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/Coverage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/Trace.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/Trace.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,13 +24,16 @@
       <FILTER>ea.*</FILTER>
     </SUITE>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="AnalysisProject" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="CoverageCalculator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+            <state relative-caret-position="558">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+            <state relative-caret-position="72">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -59,8 +54,8 @@
       <file leaf-file-name="ReportGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+            <state relative-caret-position="332">
+              <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,24 +63,46 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectStructureNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectStructureNode.java">
+      <file leaf-file-name="TestCoverageRunner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+            <state relative-caret-position="216">
+              <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportPageGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="135" column="77" lean-forward="true" selection-start-line="134" selection-start-column="35" selection-end-line="135" selection-end-column="77" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/templates/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DirectoryScanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java">
+      <file leaf-file-name="ProjectGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1379">
+              <caret line="96" column="5" lean-forward="true" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,47 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportPageGenerator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1449">
-              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MethodNodeVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/parser/MethodNodeVisitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProbeInsertionVisitor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="89" column="1" lean-forward="true" selection-start-line="89" selection-start-column="1" selection-end-line="89" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Trace.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Trace.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/Trace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+            <state relative-caret-position="810">
+              <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,8 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/PROBE_TYPE.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/TraceEvent.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ProbeTraceEvent.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ExceptionTraceEvent.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/Probe.java" />
@@ -213,20 +192,22 @@
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/MyNode.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/CODE_UNIT.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
-        <option value="$PROJECT_DIR$/Generated/test/TestCoverageRunner.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/report/index.html" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectParser.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/Coverage.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportFileWriter.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/ProjectStructureNode.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/DirectoryScanner.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/MethodNodeVisitor.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/ProbeInsertionVisitor.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/Trace.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java" />
+        <option value="$PROJECT_DIR$/Generated/test/TestCoverageRunner.java" />
+        <option value="$PROJECT_DIR$/ExampleApplication/report/style.css" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/templates/style.css" />
       </list>
     </option>
   </component>
@@ -394,6 +375,10 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ea" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ExampleApplication/report" />
+      <recent name="$PROJECT_DIR$/CoverageCalculator/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/CoverageCalculator/templates" />
@@ -629,7 +614,7 @@
       <workItem from="1507834115639" duration="7047000" />
       <workItem from="1507921488240" duration="5358000" />
       <workItem from="1508001170521" duration="35431000" />
-      <workItem from="1508330767543" duration="9632000" />
+      <workItem from="1508330767543" duration="14326000" />
     </task>
     <task id="LOCAL-00001" summary="Add coverage indicator bars.">
       <created>1508333815884</created>
@@ -645,77 +630,85 @@
       <option name="project" value="LOCAL" />
       <updated>1508337367502</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Minor refactoring.">
+      <created>1508340421581</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1508340421581</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 07m 42s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 38m 53s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 08m 18s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 40m 08s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 09m 06s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 40m 26s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 11m 44s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 40m 55s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 13m 37s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 41m 16s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 14m 39s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 41m 27s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 15m 39s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 41m 50s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 15m 55s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 42m 04s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 24m 23s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 42m 34s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 15h 34m 40s.xml">
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.18 at 17h 42m 50s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57468000" />
+    <option name="totallyTimeSpent" value="62162000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="347" y="288" width="1680" height="1023" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280363" sideWeight="0.502451" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24938725" sideWeight="0.49407783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281768" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280363" sideWeight="0.49754903" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39889503" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3984109" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24938725" sideWeight="0.50592214" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32991913" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -727,25 +720,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add coverage indicator bars." />
     <MESSAGE value="Add links to report pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add links to report pages." />
+    <MESSAGE value="Minor refactoring." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor refactoring." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/coverage/Main.java" />
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/templates/JUnitMethods.java" />
     <entry file="file://$PROJECT_DIR$/Generated/ser/methods.ser" />
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/TraceEvent.java" />
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ProbeTraceEvent.java" />
@@ -859,7 +843,7 @@
         <state relative-caret-position="72">
           <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -900,57 +884,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ExampleApplication/report/math/index.html" />
     <entry file="file://$PROJECT_DIR$/ExampleApplication/report/math/ComplexNumber.java/index.html" />
-    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ExampleApplication/report/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -994,49 +932,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportFileWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="18" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="71" column="18" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1449">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1088,11 +988,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/Trace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        <state relative-caret-position="810">
+          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/CoverageCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="135" column="77" lean-forward="true" selection-start-line="134" selection-start-column="35" selection-end-line="135" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/generator/ProjectGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1379">
+          <caret line="96" column="5" lean-forward="true" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExampleApplication/report/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/templates/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
