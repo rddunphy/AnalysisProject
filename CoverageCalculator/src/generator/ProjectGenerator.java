@@ -22,7 +22,6 @@ public class ProjectGenerator {
     private final String generatedProjectPath;
 
     private static final String templatePath = "CoverageCalculator/templates";
-    private ProbeInsertionVisitor probeInsertionVisitor;
 
     public ProjectGenerator(String sourceProjectPath, String generatedProjectPath) {
         this.sourceProjectPath = sourceProjectPath;
@@ -31,7 +30,6 @@ public class ProjectGenerator {
 
     public void generate() {
         ProjectParser parser = new ProjectParser(sourceProjectPath);
-        probeInsertionVisitor = new ProbeInsertionVisitor();
         try {
             for (ProjectStructureNode node : parser.getSourceFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
                 copySourceFile(node);
@@ -69,7 +67,8 @@ public class ProjectGenerator {
         CompilationUnit cu = ProjectParser.getCompilationUnitFromFile(node.getFilePath());
         String sourceFilePath = node.getFilePath();
         cu.addImport("runtime.Trace");
-        cu.accept(probeInsertionVisitor, node.getJavaPath());
+        cu.accept(new BlockConverterVisitor(), null);
+        cu.accept(new MethodProcessingVisitor(), node.getJavaPath());
         String path = generatedProjectPath + sourceFilePath.substring(sourceFilePath.indexOf("/"));
         writeCompilationUnitToFile(cu, path);
     }

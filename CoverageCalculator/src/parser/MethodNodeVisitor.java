@@ -8,7 +8,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import java.util.*;
 
-class MethodNodeVisitor extends VoidVisitorAdapter<Object> {
+class MethodNodeVisitor extends VoidVisitorAdapter<Void> {
 
     private final Collection<ProjectStructureNode> nodes = new HashSet<>();
     private final ProjectStructureNode parent;
@@ -32,11 +32,11 @@ class MethodNodeVisitor extends VoidVisitorAdapter<Object> {
         nodes.add(new ProjectStructureNode(CODE_UNIT.METHOD, name, signature, parent.getFilePath(), javaPath));
     }
 
-    public void visit(MethodDeclaration method, Object arg) {
+    public void visit(MethodDeclaration method, Void v) {
         processCallable(method, method.getModifiers(), method.getType().asString());
     }
 
-    public void visit(ConstructorDeclaration constructor, Object arg) {
+    public void visit(ConstructorDeclaration constructor, Void v) {
         processCallable(constructor, constructor.getModifiers(), null);
     }
 
