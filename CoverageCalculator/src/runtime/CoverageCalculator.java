@@ -64,9 +64,7 @@ class CoverageCalculator {
         }
         if (node.getType() == CODE_UNIT.METHOD) {
             Point statementCoverage = statementCoverages.get(node.getJavaPath());
-            if (statementCoverage == null) {
-                // File without any statements to cover - e.g. interface method declaration
-            } else {
+            if (statementCoverage != null) { // Method contains at least one statement
                 Coverage coverage = new Coverage(statementCoverages.get(node.getJavaPath()));
                 node.setCoverage(coverage);
             }

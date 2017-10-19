@@ -64,24 +64,24 @@ public class ProjectParser {
         List<String> tokens = new ArrayList<>();
         Optional<ClassOrInterfaceDeclaration> oClass = cu.getClassByName(name);
         if (oClass.isPresent()) {
-            tokens.addAll(getModifierTokens(oClass.get()));
+            tokens.addAll(getModifierTokens(oClass.get().getModifiers()));
             tokens.add("class");
         } else {
             oClass = cu.getInterfaceByName(name);
             if (oClass.isPresent()) {
-                tokens.addAll(getModifierTokens(oClass.get()));
+                tokens.addAll(getModifierTokens(oClass.get().getModifiers()));
                 tokens.add("interface");
             } else {
                 Optional<EnumDeclaration> oEnum = cu.getEnumByName(name);
                 if (oEnum.isPresent()) {
-                    tokens.addAll(getModifierTokens(oEnum.get()));
+                    tokens.addAll(getModifierTokens(oEnum.get().getModifiers()));
                     tokens.add("enum");
                 } else {
                     Optional<AnnotationDeclaration> oAnn = cu.getAnnotationDeclarationByName(name);
-                    if (oAnn.isPresent()) {
-                        tokens.addAll(getModifierTokens(oAnn.get()));
+                    oAnn.ifPresent(annotationDeclaration -> {
+                        tokens.addAll(getModifierTokens(annotationDeclaration.getModifiers()));
                         tokens.add("annotation");
-                    }
+                    });
                 }
             }
         }
@@ -89,8 +89,7 @@ public class ProjectParser {
         return String.join(" ", tokens);
     }
 
-    private static List<String> getModifierTokens(TypeDeclaration declaration) {
-        EnumSet<Modifier> modifiers = declaration.getModifiers();
+    private static List<String> getModifierTokens(EnumSet<Modifier> modifiers) {
         List<String> tokens = new ArrayList<>();
         for (Modifier modifier : modifiers) {
             tokens.add(modifier.asString());

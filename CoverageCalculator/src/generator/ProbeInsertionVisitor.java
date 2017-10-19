@@ -25,11 +25,11 @@ class ProbeInsertionVisitor extends VoidVisitorAdapter<String> {
     }
 
     private boolean isCompoundStatement(Statement stmt) {
-        return stmt instanceof IfStmt || stmt instanceof ForStmt;
+        return stmt instanceof IfStmt || stmt instanceof ForStmt || stmt instanceof ForeachStmt || stmt instanceof WhileStmt;
     }
 
     private boolean isTerminatingStatement(Statement stmt) {
-        return stmt instanceof ReturnStmt || stmt instanceof ThrowStmt;
+        return stmt instanceof ReturnStmt || stmt instanceof ThrowStmt || stmt instanceof BreakStmt;
     }
 
     private Collection<BlockStmt> getBlocksFromCompoundStatement(Statement stmt) {
@@ -51,7 +51,7 @@ class ProbeInsertionVisitor extends VoidVisitorAdapter<String> {
 
     private void insertProbes(BlockStmt block, String signature) {
         NodeList<Statement> statements = new NodeList<>(block.getStatements());
-        int n = 0;
+        int n = 0; // Number of statements since last probe
         BlockStmt modified = new BlockStmt();
         for (Statement stmt : statements) {
             n++;
