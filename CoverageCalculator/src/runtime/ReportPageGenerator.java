@@ -1,6 +1,7 @@
 package runtime;
 
 import j2html.tags.ContainerTag;
+import j2html.tags.UnescapedText;
 import parser.CODE_UNIT;
 import parser.ProjectStructureNode;
 
@@ -17,44 +18,59 @@ import static j2html.TagCreator.*;
 class ReportPageGenerator {
 
     void generatePage(String projectName, String timeStamp, ProjectStructureNode node, String path) {
-        ContainerTag pageNameHeading;
         boolean isIndexPage = node.getType() != CODE_UNIT.CLASS;
-        if (node.getType() == CODE_UNIT.SOURCE_DIR) {
-            pageNameHeading = h2(projectName);
-        } else {
-            pageNameHeading = getBreadCrumbs(projectName, node.getJavaPath(), isIndexPage);
-        }
-        ContainerTag coverageDiv = null;
-        if (node.getCoverage() != null) {
-            coverageDiv = getCoverageDiv(node.getCoverage());
-        }
-        String cssPath;
-        if (node.getJavaPath().equals("")) {
-            cssPath = "style.css";
-        } else {
-            int dirs = node.getJavaPath().split("\\.").length;
-            if (!isIndexPage) {
-                dirs--;
-            }
-            cssPath = repeatUpDirectory(dirs) + "/style.css";
-        }
         List<ProjectStructureNode> children = sortSections(node.getChildren());
         ContainerTag html = html(
                 head().with(
                         title("Coverage report: " + projectName),
-                        link().withRel("stylesheet").withHref(cssPath)
+                        link().withRel("stylesheet").withHref(getCssPath(node, isIndexPage))
                 ),
                 body().with(
                         div(
-                                h1("Coverage report"),
-                                p("Generated " + timeStamp),
-                                pageNameHeading,
-                                iff(node.getCoverage() != null, coverageDiv),
+                                getHeaderDiv(timeStamp),
+                                getOverviewDiv(projectName, node, isIndexPage),
                                 each(children, this::getSectionDiv)
                         ).withId("main")
                 )
         );
         writeReportFile(html, path);
+    }
+
+    private ContainerTag getHeaderDiv(String timeStamp) {
+        return div(
+                h1("Coverage report"),
+                div("Generated " + timeStamp).withId("timestampDiv")
+        ).withId("headerDiv");
+    }
+
+    private String getCssPath(ProjectStructureNode node, boolean isIndexPage) {
+        if (node.getJavaPath().equals("")) {
+            return "style.css";
+        }
+        int dirs = node.getJavaPath().split("\\.").length;
+        if (!isIndexPage) {
+            dirs--;
+        }
+        return repeatUpDirectory(dirs) + "/style.css";
+    }
+
+    private ContainerTag getOverviewDiv(String projectName, ProjectStructureNode node, boolean isIndexPage) {
+        ContainerTag coverageDiv = null;
+        if (node.getCoverage() != null) {
+            coverageDiv = getCoverageDiv(node.getCoverage()).withClass("overviewCoverage");
+        }
+        ContainerTag header;
+        boolean isRoot = node.getType() == CODE_UNIT.SOURCE_DIR;
+        if (isRoot) {
+            header = h2(projectName);
+        } else {
+            header = getBreadCrumbs(projectName, node.getJavaPath(), isIndexPage);
+        }
+        return div(
+                header,
+                iff(!isRoot, p(getFormattedSignature(node))),
+                iff(node.getCoverage() != null, coverageDiv)
+        ).withId("overviewDiv");
     }
 
     private List<ProjectStructureNode> sortSections(Collection<ProjectStructureNode> nodes) {
@@ -96,19 +112,19 @@ class ReportPageGenerator {
     private ContainerTag getSectionDiv(ProjectStructureNode node) {
         ContainerTag sectionName;
         if (node.getType() == CODE_UNIT.METHOD) {
-            sectionName = span(node.getSignature());
+            sectionName = span(getFormattedSignature(node));
         } else if (node.getType() == CODE_UNIT.CLASS) {
-            sectionName = a(node.getSignature()).withHref(node.getName() + ".html");
+            sectionName = a(getFormattedSignature(node)).withHref(node.getName() + ".html");
         } else {
-            sectionName = a(node.getSignature()).withHref((node.getName() + "/index.html"));
+            sectionName = a(getFormattedSignature(node)).withHref((node.getName() + "/index.html"));
         }
         if (node.getCoverage() == null) {
-            return div(h3(sectionName).withClass("interface"));
+            return div(h3(sectionName).withClass("interface")).withClass("sectionDiv");
         }
         return div(
                 h3(sectionName),
                 getCoverageDiv(node.getCoverage())
-        );
+        ).withClass("sectionDiv");
     }
 
     private ContainerTag getCoverageDiv(Coverage coverage) {
@@ -154,5 +170,11 @@ class ReportPageGenerator {
                 e.printStackTrace();
             }
         }
+    }
+
+    private UnescapedText getFormattedSignature(ProjectStructureNode node) {
+        int i = node.getSignature().indexOf(node.getName());
+        String modifiers = node.getSignature().substring(0, i);
+        return join(span(modifiers).withClass("modifiers"), node.getName());
     }
 }

@@ -2,13 +2,16 @@ package parser;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.AnnotationDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.comments.Comment;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,18 +64,22 @@ public class ProjectParser {
         List<String> tokens = new ArrayList<>();
         Optional<ClassOrInterfaceDeclaration> oClass = cu.getClassByName(name);
         if (oClass.isPresent()) {
+            tokens.addAll(getModifierTokens(oClass.get()));
             tokens.add("class");
         } else {
             oClass = cu.getInterfaceByName(name);
             if (oClass.isPresent()) {
+                tokens.addAll(getModifierTokens(oClass.get()));
                 tokens.add("interface");
             } else {
                 Optional<EnumDeclaration> oEnum = cu.getEnumByName(name);
                 if (oEnum.isPresent()) {
+                    tokens.addAll(getModifierTokens(oEnum.get()));
                     tokens.add("enum");
                 } else {
                     Optional<AnnotationDeclaration> oAnn = cu.getAnnotationDeclarationByName(name);
                     if (oAnn.isPresent()) {
+                        tokens.addAll(getModifierTokens(oAnn.get()));
                         tokens.add("annotation");
                     }
                 }
@@ -80,5 +87,14 @@ public class ProjectParser {
         }
         tokens.add(name);
         return String.join(" ", tokens);
+    }
+
+    private static List<String> getModifierTokens(TypeDeclaration declaration) {
+        EnumSet<Modifier> modifiers = declaration.getModifiers();
+        List<String> tokens = new ArrayList<>();
+        for (Modifier modifier : modifiers) {
+            tokens.add(modifier.asString());
+        }
+        return tokens;
     }
 }
