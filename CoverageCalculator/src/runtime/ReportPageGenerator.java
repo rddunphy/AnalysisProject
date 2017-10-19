@@ -128,22 +128,20 @@ class ReportPageGenerator {
     }
 
     private ContainerTag getCoverageDiv(Coverage coverage) {
-        Map<String, Double> lines = new HashMap<>();
-        String line = formatCoveragePoint(coverage.getStatementCoverage(), "statements");
-        double value = Coverage.calculateCoverage(coverage.getStatementCoverage());
-        lines.put(line, value);
-        if (coverage.getMethodCoverage().y > 0) {
-            line = formatCoveragePoint(coverage.getMethodCoverage(), "methods");
-            value = Coverage.calculateCoverage(coverage.getMethodCoverage());
-            lines.put(line, value);
-        }
-        if (coverage.getClassCoverage().y > 0) {
-            line = formatCoveragePoint(coverage.getClassCoverage(), "classes");
-            value = Coverage.calculateCoverage(coverage.getClassCoverage());
-            lines.put(line, value);
-        }
+        double statementCoverage = Coverage.calculateCoverage(coverage.getStatementCoverage());
+        String statementCoverageText = formatCoveragePoint(coverage.getStatementCoverage(), "statements");
+        double methodCoverage = Coverage.calculateCoverage(coverage.getMethodCoverage());
+        String methodCoverageText = formatCoveragePoint(coverage.getMethodCoverage(), "methods");
+        double classCoverage = Coverage.calculateCoverage(coverage.getClassCoverage());
+        String classCoverageText = formatCoveragePoint(coverage.getClassCoverage(), "classes");
         return div(
-                each(lines.keySet(), l -> p(getCoverageBar(lines.get(l)), span(l)))
+                p(getCoverageBar(statementCoverage), span(statementCoverageText)),
+                iff(methodCoverageText != null,
+                        p(getCoverageBar(methodCoverage), span(methodCoverageText))
+                ),
+                iff(classCoverageText != null,
+                        p(getCoverageBar(classCoverage), span(classCoverageText))
+                )
         );
     }
 
@@ -155,6 +153,9 @@ class ReportPageGenerator {
     }
 
     private String formatCoveragePoint(Point p, String label) {
+        if (p.y == 0) {
+            return null;
+        }
         double value = 100 * Coverage.calculateCoverage(p);
         String formattedValue = new DecimalFormat("#.#").format(value);
         return String.format("%s%% of %s (%d of %d)", formattedValue, label, p.x, p.y);
