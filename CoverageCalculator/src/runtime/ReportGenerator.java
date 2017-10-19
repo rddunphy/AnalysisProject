@@ -6,19 +6,22 @@ import parser.ProjectStructureNode;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 public class ReportGenerator {
     
     private final ReportPageGenerator pageGenerator = new ReportPageGenerator();
+    private String timeStamp;
 
     public void generate() {
         try {
             ProjectStructureNode tree = CoverageCalculator.calculate(deserialiseStructure());
             tidyReportDirectory(tree);
             String projectName = tree.getFilePath().substring(0, tree.getFilePath().indexOf("/"));
+            timeStamp = generateTimeStamp();
             generateHtmlFiles(projectName, tree);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -38,7 +41,7 @@ public class ReportGenerator {
     private void generateHtmlFiles(String projectName, ProjectStructureNode node) {
         if (node.getType() != CODE_UNIT.METHOD) {
             String reportPath = buildReportPath(node.getFilePath(), node.getType() == CODE_UNIT.CLASS);
-            pageGenerator.generatePage(projectName, node, reportPath);
+            pageGenerator.generatePage(projectName, timeStamp, node, reportPath);
         }
         for (ProjectStructureNode child : node.getChildren()) {
             generateHtmlFiles(projectName, child);
@@ -59,6 +62,12 @@ public class ReportGenerator {
              ObjectInputStream objectinputstream = new ObjectInputStream(streamIn)) {
             return (ProjectStructureNode) objectinputstream.readObject();
         }
+    }
+
+    private String generateTimeStamp() {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+        Date now = new Date();
+        return format.format(now);
     }
 
 }

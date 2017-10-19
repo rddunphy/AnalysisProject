@@ -10,22 +10,19 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static j2html.TagCreator.*;
 
 class ReportPageGenerator {
 
-    void generatePage(String projectName, ProjectStructureNode node, String path) {
-        ContainerTag pageName;
+    void generatePage(String projectName, String timeStamp, ProjectStructureNode node, String path) {
+        ContainerTag pageNameHeading;
         boolean isIndexPage = node.getType() != CODE_UNIT.CLASS;
         if (node.getType() == CODE_UNIT.SOURCE_DIR) {
-            pageName = span(projectName);
+            pageNameHeading = h2(projectName);
         } else {
-            pageName = getBreadCrumbs(projectName, node.getJavaPath(), isIndexPage);
+            pageNameHeading = getBreadCrumbs(projectName, node.getJavaPath(), isIndexPage);
         }
         ContainerTag coverageDiv = null;
         if (node.getCoverage() != null) {
@@ -41,20 +38,37 @@ class ReportPageGenerator {
             }
             cssPath = repeatUpDirectory(dirs) + "/style.css";
         }
+        List<ProjectStructureNode> children = sortSections(node.getChildren());
         ContainerTag html = html(
                 head().with(
-                        title(projectName + " - coverage report"),
+                        title("Coverage report: " + projectName),
                         link().withRel("stylesheet").withHref(cssPath)
                 ),
                 body().with(
                         div(
-                                h1(pageName),
+                                h1("Coverage report"),
+                                p("Generated " + timeStamp),
+                                pageNameHeading,
                                 iff(node.getCoverage() != null, coverageDiv),
-                                each(node.getChildren(), this::getSectionDiv)
+                                each(children, this::getSectionDiv)
                         ).withId("main")
                 )
         );
         writeReportFile(html, path);
+    }
+
+    private List<ProjectStructureNode> sortSections(Collection<ProjectStructureNode> nodes) {
+        List<ProjectStructureNode> sorted = new ArrayList<>(nodes);
+        sorted.sort((n1, n2) -> {
+            if (n1.getCoverage() == null && n2.getCoverage() != null) {
+                return 1;
+            }
+            if (n2.getCoverage() == null && n1.getCoverage() != null) {
+                return -1;
+            }
+            return n1.getName().compareTo(n2.getName());
+        });
+        return sorted;
     }
 
     private ContainerTag getBreadCrumbs(String projectName, String javaPath, boolean isIndexPage) {
@@ -67,10 +81,10 @@ class ReportPageGenerator {
             linkTags.add(a(levels[i]).withHref(href));
         }
         href = repeatUpDirectory(levels.length - offset + 1) + "index.html";
-        return span(
+        return h2(
                 a(projectName).withHref(href),
                 text(" - "),
-                each(linkTags, l -> span(l, text("."))),
+                each(linkTags, l -> join(l, text("."))),
                 text(levels[levels.length - 1])
         );
     }
@@ -82,17 +96,17 @@ class ReportPageGenerator {
     private ContainerTag getSectionDiv(ProjectStructureNode node) {
         ContainerTag sectionName;
         if (node.getType() == CODE_UNIT.METHOD) {
-            sectionName = span(node.getJavaPath());
+            sectionName = span(node.getSignature());
         } else if (node.getType() == CODE_UNIT.CLASS) {
-            sectionName = a(node.getJavaPath()).withHref(node.getName() + ".html");
+            sectionName = a(node.getSignature()).withHref(node.getName() + ".html");
         } else {
-            sectionName = a(node.getJavaPath()).withHref((node.getName() + "/index.html"));
+            sectionName = a(node.getSignature()).withHref((node.getName() + "/index.html"));
         }
         if (node.getCoverage() == null) {
-            return div(h2(sectionName).withClass("interface"));
+            return div(h3(sectionName).withClass("interface"));
         }
         return div(
-                h2(sectionName),
+                h3(sectionName),
                 getCoverageDiv(node.getCoverage())
         );
     }

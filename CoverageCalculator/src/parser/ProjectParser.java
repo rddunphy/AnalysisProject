@@ -2,9 +2,15 @@ package parser;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.AnnotationDeclaration;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.comments.Comment;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class ProjectParser {
 
@@ -51,4 +57,28 @@ public class ProjectParser {
         }
     }
 
+    public static String getFullSignature(CompilationUnit cu, String name) {
+        List<String> tokens = new ArrayList<>();
+        Optional<ClassOrInterfaceDeclaration> oClass = cu.getClassByName(name);
+        if (oClass.isPresent()) {
+            tokens.add("class");
+        } else {
+            oClass = cu.getInterfaceByName(name);
+            if (oClass.isPresent()) {
+                tokens.add("interface");
+            } else {
+                Optional<EnumDeclaration> oEnum = cu.getEnumByName(name);
+                if (oEnum.isPresent()) {
+                    tokens.add("enum");
+                } else {
+                    Optional<AnnotationDeclaration> oAnn = cu.getAnnotationDeclarationByName(name);
+                    if (oAnn.isPresent()) {
+                        tokens.add("annotation");
+                    }
+                }
+            }
+        }
+        tokens.add(name);
+        return String.join(" ", tokens);
+    }
 }

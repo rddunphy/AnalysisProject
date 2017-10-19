@@ -11,14 +11,16 @@ public class ProjectStructureNode implements Serializable {
 
     private final CODE_UNIT type;
     private final String name;
+    private final String signature;
     private final String filePath;
     private String javaPath;
     private final Set<ProjectStructureNode> children;
     private Coverage coverage;
 
-    ProjectStructureNode(CODE_UNIT type, String name, String filePath, String javaPath) {
+    ProjectStructureNode(CODE_UNIT type, String name, String signature, String filePath, String javaPath) {
         this.type = type;
         this.name = name;
+        this.signature = signature;
         this.filePath = filePath;
         this.javaPath = javaPath;
         this.children = new HashSet<>();
@@ -31,6 +33,10 @@ public class ProjectStructureNode implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public String getSignature() {
+        return signature;
     }
 
     public String getFilePath() {
