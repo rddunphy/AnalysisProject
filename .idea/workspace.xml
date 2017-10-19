@@ -5,16 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e792f6d-3515-4c3d-980c-ffa65f97f4fc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/src/calc/Calculator.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/src/calc/subpkg/SOME_ENUM.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/src/calc/subpkg/SomeInterface.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/src/math/Angle.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/src/math/ComplexNumber.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/test/calc/CalculatorTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/test/math/AngleTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ExampleApplication/test/math/ComplexNumberTest.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/ExampleApplication.iml" afterPath="$PROJECT_DIR$/FolioTracker/FolioTracker.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/ctrlr/PrimaryActionListener.java" afterPath="$PROJECT_DIR$/FolioTracker/src/ctrlr/PrimaryActionListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/ctrlr/PrimaryWindowListener.java" afterPath="$PROJECT_DIR$/FolioTracker/src/ctrlr/PrimaryWindowListener.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/AutoRefresh.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/AutoRefresh.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/Folio.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/Folio.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/FolioImpl.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/FolioImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/FolioLoader.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/FolioLoader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/FolioTracker.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/FolioTracker.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/FolioTrackerImpl.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/FolioTrackerImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/IQuote.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/IQuote.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/MethodException.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/MethodException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/NoSuchTickerException.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/NoSuchTickerException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/Quote.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/Quote.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/Stock.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/Stock.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/StockImpl.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/StockImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/UpdateStocksRunnable.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/UpdateStocksRunnable.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/model/WebsiteDataException.java" afterPath="$PROJECT_DIR$/FolioTracker/src/model/WebsiteDataException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/CurrencyFormatter.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/CurrencyFormatter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/CurrencyTableCellRenderer.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/CurrencyTableCellRenderer.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/FolioTabPanel.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/FolioTabPanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/FolioTableModel.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/FolioTableModel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/FolioTableModelComparator.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/FolioTableModelComparator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/Main.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/PrimaryFrame.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/PrimaryFrame.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/PrimaryMenuBar.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/PrimaryMenuBar.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/TabComponent.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/TabComponent.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/src/view/View.java" afterPath="$PROJECT_DIR$/FolioTracker/src/view/View.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/test/model/FolioTest.java" afterPath="$PROJECT_DIR$/FolioTracker/test/model/FolioTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/test/model/FolioTrackerTest.java" afterPath="$PROJECT_DIR$/FolioTracker/test/model/FolioTrackerTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ExampleApplication/test/model/StockTest.java" afterPath="$PROJECT_DIR$/FolioTracker/test/model/StockTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" afterPath="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,14 +74,14 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="126">
+              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportPageGenerator.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReportPageGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="191">
@@ -71,7 +94,7 @@
         </entry>
       </file>
       <file leaf-file-name="Quote.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExampleApplication/src/model/Quote.java">
+        <entry file="file://$PROJECT_DIR$/FolioTracker/src/model/Quote.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="558">
               <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
@@ -81,7 +104,7 @@
         </entry>
       </file>
       <file leaf-file-name="StockImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExampleApplication/src/model/StockImpl.java">
+        <entry file="file://$PROJECT_DIR$/FolioTracker/src/model/StockImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="36">
               <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -91,7 +114,7 @@
         </entry>
       </file>
       <file leaf-file-name="FolioTrackerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExampleApplication/test/model/FolioTrackerTest.java">
+        <entry file="file://$PROJECT_DIR$/FolioTracker/test/model/FolioTrackerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1332">
               <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
@@ -103,7 +126,7 @@
         </entry>
       </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ExampleApplication/src/view/Main.java">
+        <entry file="file://$PROJECT_DIR$/FolioTracker/src/view/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
               <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -122,7 +145,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestCoverageRunner.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestCoverageRunner.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
@@ -209,7 +232,6 @@
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/TestRunner.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/MyNode.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/parser/CODE_UNIT.java" />
-        <option value="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/report/index.html" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/generator/DirectoryCleaner.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/Coverage.java" />
@@ -233,8 +255,9 @@
         <option value="$PROJECT_DIR$/ExampleApplication/test/model/FolioTest.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/model/StockTest.java" />
         <option value="$PROJECT_DIR$/ExampleApplication/test/model/FolioTrackerTest.java" />
-        <option value="$PROJECT_DIR$/Generated/test/TestCoverageRunner.java" />
         <option value="$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportPageGenerator.java" />
+        <option value="$PROJECT_DIR$/CoverageCalculator/src/main/Main.java" />
+        <option value="$PROJECT_DIR$/Generated/test/TestCoverageRunner.java" />
       </list>
     </option>
   </component>
@@ -317,21 +340,16 @@
             </path>
             <path>
               <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="FolioTracker" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="FolioTracker" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnalysisProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExampleApplication" type="462c0819:PsiDirectoryNode" />
+              <item name="FolioTracker" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -631,8 +649,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.TestCoverageRunner (1)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.model in ExampleApplication" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.model in ExampleApplication" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.FolioTrackerTest (1)" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.FolioTrackerTest" />
       </list>
@@ -657,7 +675,7 @@
       <workItem from="1508330767543" duration="14501000" />
       <workItem from="1508405439995" duration="5403000" />
       <workItem from="1508416567326" duration="7457000" />
-      <workItem from="1508426041789" duration="8088000" />
+      <workItem from="1508426041789" duration="8358000" />
     </task>
     <task id="LOCAL-00001" summary="Add coverage indicator bars.">
       <created>1508333815884</created>
@@ -715,7 +733,21 @@
       <option name="project" value="LOCAL" />
       <updated>1508431863394</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fix coverage bars appearing in random order.">
+      <created>1508434147633</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508434147633</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add folio tracker files for demo.">
+      <created>1508434206073</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1508434206073</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -731,9 +763,6 @@
     <history-entry file="FolioTrackerTest_(1) - 2017.10.19 at 18h 05m 07s.xml">
       <configuration name="FolioTrackerTest (1)" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="TestCoverageRunner_(1) - 2017.10.19 at 17h 53m 32s.xml">
-      <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TestCoverageRunner_(1) - 2017.10.19 at 18h 03m 20s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
@@ -746,12 +775,15 @@
     <history-entry file="TestCoverageRunner_(1) - 2017.10.19 at 18h 27m 41s.xml">
       <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="TestCoverageRunner_(1) - 2017.10.19 at 18h 32m 40s.xml">
+      <configuration name="TestCoverageRunner (1)" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="model_in_ExampleApplication - 2017.10.19 at 18h 07m 11s.xml">
       <configuration name="model in ExampleApplication" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83285000" />
+    <option name="totallyTimeSpent" value="83555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -764,6 +796,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="347" y="288" width="1680" height="1023" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280363" sideWeight="0.502451" order="7" side_tool="true" content_ui="tabs" />
@@ -786,7 +819,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32965687" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25980392" sideWeight="0.49407783" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25980392" sideWeight="0.49407783" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32690126" sideWeight="0.49754903" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24938725" sideWeight="0.50592214" order="5" side_tool="true" content_ui="tabs" />
@@ -812,7 +845,10 @@
     <MESSAGE value="Add modifiers to report and improve report layout and formatting." />
     <MESSAGE value="Add support for while, for each, and break statements." />
     <MESSAGE value="Convert single-statement blocks to block statements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Convert single-statement blocks to block statements." />
+    <MESSAGE value="Fix coverage bars appearing in random order." />
+    <MESSAGE value="Add folio tracker files for demo." />
+    <MESSAGE value="Rename module from ExampleApplication to FolioTracker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename module from ExampleApplication to FolioTracker." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -878,7 +914,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ExampleApplication/report/math/index.html" />
     <entry file="file://$PROJECT_DIR$/ExampleApplication/report/math/ComplexNumber.java/index.html" />
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/report/index.html">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/report/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
@@ -902,7 +938,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/runtime/ReportFileWriter.java" />
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/report/style.css">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/report/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
           <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
@@ -1075,7 +1111,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/ctrlr/PrimaryActionListener.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/src/ctrlr/PrimaryActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1083,7 +1119,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/model/FolioTest.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/test/model/FolioTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-799">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
@@ -1093,7 +1129,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/model/StockTest.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/test/model/StockTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
@@ -1101,7 +1137,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/view/Main.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/src/view/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -1133,7 +1169,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/test/model/FolioTrackerTest.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/test/model/FolioTrackerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1332">
           <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
@@ -1143,23 +1179,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/model/Quote.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/src/model/Quote.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
           <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="16" />
@@ -1167,7 +1187,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ExampleApplication/src/model/StockImpl.java">
+    <entry file="file://$PROJECT_DIR$/FolioTracker/src/model/StockImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -1182,6 +1202,22 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoverageCalculator/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Generated/test/TestCoverageRunner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
