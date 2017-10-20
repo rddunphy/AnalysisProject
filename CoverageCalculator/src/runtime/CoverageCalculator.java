@@ -9,8 +9,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A utility class which traverses a ProjectStructureNode tree and attaches coverage metrics
+ * based on the contents of the Trace.
+ */
 class CoverageCalculator {
 
+    /**
+     * Traverses a tree of ProjectStructureNodes and calculates the coverage for each node.
+     *
+     * @param tree A tree of java nodes whose coverage is to be calculated
+     * @return The tree with the coverage data inserted
+     */
     static ProjectStructureNode calculate(ProjectStructureNode tree) {
         Map<Long, Probe> probes = Trace.getInstance().getProbes();
         List<Probe> trace = Trace.getInstance().getTrace();

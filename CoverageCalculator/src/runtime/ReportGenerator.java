@@ -11,11 +11,19 @@ import java.util.Date;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
+/**
+ * Main class which generates the coverage report documents.
+ */
 public class ReportGenerator {
     
     private final ReportPageGenerator pageGenerator = new ReportPageGenerator();
     private String timeStamp;
 
+    /**
+     * Creates a directory structure in the report directory of the source project which mirrors the
+     * structure of the project, and uses ReportPageGenerator to generate HTML pages for each node
+     * in the project.
+     */
     public void generate() {
         try {
             ProjectStructureNode tree = CoverageCalculator.calculate(deserialiseStructure());

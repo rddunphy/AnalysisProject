@@ -100,7 +100,7 @@ public interface Folio {
 	/**
 	 * Set whether this folio is in the process of updating stock info or not.
 	 * 
-	 * @param updating.
+	 * @param updating
 	 */
 	public void setUpdating(boolean updating);
 }

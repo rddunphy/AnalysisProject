@@ -3,7 +3,9 @@ package generator;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.stmt.Statement;
 import parser.CODE_UNIT;
 import parser.ProjectParser;
 import parser.ProjectStructureNode;
@@ -28,21 +30,21 @@ public class ProjectGenerator {
         this.generatedProjectPath = generatedProjectPath;
     }
 
-    public void generate() {
+    public void generate() throws IOException {
+        System.out.println("  Parsing module '" + sourceProjectPath + "'...");
         ProjectParser parser = new ProjectParser(sourceProjectPath);
-        try {
-            for (ProjectStructureNode node : parser.getSourceFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
-                copySourceFile(node);
-            }
-            for (ProjectStructureNode node : parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
-                copyTestFile(node);
-            }
-            generateTestRunner(parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS));
-            serialiseData(ProbeFactory.getProbes(), "probes");
-            serialiseData(parser.getSourceFiles(), "structure");
-        } catch (IOException e) {
-            System.out.println(e);
+        System.out.println("  Adding probes to source files...");
+        for (ProjectStructureNode node : parser.getSourceFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
+            copySourceFile(node);
         }
+        System.out.println("  Generating test runner...");
+        for (ProjectStructureNode node : parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS)) {
+            copyTestFile(node);
+        }
+        generateTestRunner(parser.getTestFiles().getAllNodesOfType(CODE_UNIT.CLASS));
+        System.out.println("  Serialising probe data...");
+        serialiseData(ProbeFactory.getProbes(), "probes");
+        serialiseData(parser.getSourceFiles(), "structure");
     }
 
     private void serialiseData(Object data, String name) throws IOException {
@@ -85,6 +87,11 @@ public class ProjectGenerator {
         AnnotationExpr annotation = JavaParser.parseAnnotation(str);
         assert c != null;
         c.addAnnotation(annotation);
+        MethodDeclaration setupMethod = c.getMethodsByName("coverageSetup").get(0);
+        Statement stmt = JavaParser.parseStatement("String sourceModuleName = \"" + sourceProjectPath + "\";");
+        if (setupMethod.getBody().isPresent()) {
+            setupMethod.getBody().get().addStatement(0, stmt);
+        }
         writeCompilationUnitToFile(cu, generatedProjectPath + "/test/TestCoverageRunner.java");
     }
 

@@ -7,10 +7,21 @@ import com.github.javaparser.ast.body.TypeDeclaration;
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ * Utility class for scanning a directory and converting it to a project structure tree.
+ */
 class DirectoryScanner {
 
     private ProjectStructureNode tree;
 
+    /**
+     * Scans the root directory and returns a tree of ProjectStructureNodes corresponding
+     * to the packages and code units (e.g. classes and interfaces) within the directory
+     * structure.
+     *
+     * @param root The root directory path
+     * @return The resulting project structure tree
+     */
     ProjectStructureNode scan(String root) {
         this.tree = null;
         File file = new File(root);
@@ -39,7 +50,6 @@ class DirectoryScanner {
                 parent.addChild(node);
             }
         } else if (path.endsWith(".java")) {
-            String unitName = file.getName().substring(0, file.getName().lastIndexOf("."));
             try {
                 CompilationUnit cu = JavaParser.parse(file);
                 String javaPath = "";

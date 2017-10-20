@@ -15,8 +15,19 @@ import java.util.*;
 
 import static j2html.TagCreator.*;
 
+/**
+ * Generates a single HTML file representing the coverage of a given node.
+ */
 class ReportPageGenerator {
 
+    /**
+     * Generates HTML describing the coverage of the given node and writes it to the given file path.
+     *
+     * @param projectName The name of the project
+     * @param timeStamp The time at which the report was generated
+     * @param node The node whose coverage is to be represented
+     * @param path The file path at which to write the resulting HTML file.
+     */
     void generatePage(String projectName, String timeStamp, ProjectStructureNode node, String path) {
         boolean isIndexPage = node.getType() != CODE_UNIT.CLASS;
         List<ProjectStructureNode> children = sortSections(node.getChildren());
@@ -131,11 +142,11 @@ class ReportPageGenerator {
     }
 
     private ContainerTag getCoverageDiv(Coverage coverage) {
-        double statementCoverage = Coverage.calculateCoverage(coverage.getStatementCoverage());
+        double statementCoverage = Coverage.asDouble(coverage.getStatementCoverage());
         String statementCoverageText = formatCoveragePoint(coverage.getStatementCoverage(), "statements");
-        double methodCoverage = Coverage.calculateCoverage(coverage.getMethodCoverage());
+        double methodCoverage = Coverage.asDouble(coverage.getMethodCoverage());
         String methodCoverageText = formatCoveragePoint(coverage.getMethodCoverage(), "methods");
-        double classCoverage = Coverage.calculateCoverage(coverage.getClassCoverage());
+        double classCoverage = Coverage.asDouble(coverage.getClassCoverage());
         String classCoverageText = formatCoveragePoint(coverage.getClassCoverage(), "classes");
         return div(
                 p(getCoverageBar(statementCoverage), span(statementCoverageText)),
@@ -159,7 +170,7 @@ class ReportPageGenerator {
         if (p.y == 0) {
             return null;
         }
-        double value = 100 * Coverage.calculateCoverage(p);
+        double value = 100 * Coverage.asDouble(p);
         String formattedValue = new DecimalFormat("#.#").format(value);
         return String.format("%s%% of %s (%d of %d)", formattedValue, label, p.x, p.y);
     }

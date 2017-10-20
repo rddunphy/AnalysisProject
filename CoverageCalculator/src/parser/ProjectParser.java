@@ -14,11 +14,20 @@ import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 
+/**
+ * Parses a source module and creates trees corresponding to the source and test directories
+ * of the module.
+ */
 public class ProjectParser {
 
     private final ProjectStructureNode sourceFilesTree;
     private final ProjectStructureNode testFilesTree;
 
+    /**
+     * Parses the source project and generates corresponding project structure trees.
+     *
+     * @param sourceProjectPath
+     */
     public ProjectParser(String sourceProjectPath) {
         DirectoryScanner scanner = new DirectoryScanner();
         sourceFilesTree = scanner.scan(sourceProjectPath + "/src");
@@ -26,6 +35,13 @@ public class ProjectParser {
         testFilesTree = scanner.scan(sourceProjectPath + "/test");
     }
 
+    /**
+     * Utility method to convert a file to a compilation unit with all comments removed.
+     *
+     * @param filePath
+     * @return The compilation unit
+     * @throws IOException
+     */
     public static CompilationUnit getCompilationUnitFromFile(String filePath) throws IOException {
         File file = new File(filePath);
         CompilationUnit cu;
@@ -38,14 +54,31 @@ public class ProjectParser {
         return cu;
     }
 
+    /**
+     * Retrieve the generated test file tree.
+     *
+     * @return The root of the test file tree
+     */
     public ProjectStructureNode getTestFiles() {
         return testFilesTree;
     }
 
+    /**
+     * Retrieve the generated source file tree.
+     *
+     * @return The root of the source file tree
+     */
     public ProjectStructureNode getSourceFiles() {
         return sourceFilesTree;
     }
 
+    /**
+     * Utility method to generate the full signature of a class, interface, enum, or annotation
+     * declaration.
+     *
+     * @param declaration
+     * @return A signature of the form "public abstract class MyClass"
+     */
     static String getFullSignature(TypeDeclaration declaration) {
         List<String> tokens = new ArrayList<>();
         EnumSet<Modifier> modifiers = declaration.getModifiers();

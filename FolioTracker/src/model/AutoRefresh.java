@@ -7,14 +7,6 @@ public class AutoRefresh implements Runnable {
 	private static final int TIMER = 30000;
 	private Folio folio;
 
-	class InternalClass {
-		public int internalMethod() {
-			int x = 3;
-			int y = 4;
-			return x + y;
-		}
-	}
-
 	public AutoRefresh(Folio folio) {
 		this.folio = folio;
 	}

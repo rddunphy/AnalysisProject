@@ -4,6 +4,11 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
+/**
+ * Visits all compound statements (i.e. statements which may contain a block statement, such as
+ * for statements) and replaces the body of the statement with an equivalent block statement if
+ * it is not a block statement.
+ */
 class BlockConverterVisitor extends VoidVisitorAdapter<Void> {
 
     private BlockStmt createBlock(Statement stmt) {
