@@ -46,26 +46,25 @@ public class ProjectParser {
         return sourceFilesTree;
     }
 
-    static String getFullSignature(CompilationUnit cu, String name) {
+    static String getFullSignature(TypeDeclaration declaration) {
         List<String> tokens = new ArrayList<>();
-        TypeDeclaration type = cu.getType(0);
-        EnumSet<Modifier> modifiers = type.getModifiers();
+        EnumSet<Modifier> modifiers = declaration.getModifiers();
         for (Modifier modifier : modifiers) {
             tokens.add(modifier.asString());
         }
-        if (type instanceof ClassOrInterfaceDeclaration) {
-            if (((ClassOrInterfaceDeclaration) type).isInterface()) {
+        if (declaration instanceof ClassOrInterfaceDeclaration) {
+            if (((ClassOrInterfaceDeclaration) declaration).isInterface()) {
                 tokens.add("interface");
             } else {
                 tokens.add("class");
             }
-        } else if (type instanceof AnnotationDeclaration) {
+        } else if (declaration instanceof AnnotationDeclaration) {
             tokens.add("annotation");
-        } else if (type instanceof EnumDeclaration) {
+        } else if (declaration instanceof EnumDeclaration) {
             tokens.add("enum");
         }
-        tokens.add(type.getNameAsString());
-        tokens.add(name);
+        tokens.add(declaration.getNameAsString());
+        tokens.add(declaration.getNameAsString());
         return String.join(" ", tokens);
     }
 

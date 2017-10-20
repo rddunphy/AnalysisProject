@@ -2,8 +2,8 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 
-import model.Folio;
-import model.Stock;
+import model.folios.Folio;
+import model.folios.Stock;
 
 @SuppressWarnings("serial")
 public class FolioTableModel extends AbstractTableModel {

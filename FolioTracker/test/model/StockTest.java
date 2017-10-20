@@ -1,6 +1,8 @@
 
 package model;
 
+import model.folios.Stock;
+import model.folios.StockImpl;
 import org.junit.Before;
 import org.junit.Test;
 

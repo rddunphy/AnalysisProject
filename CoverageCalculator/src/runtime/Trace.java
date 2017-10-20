@@ -1,7 +1,6 @@
 package runtime;
 
 import probes.Probe;
-import probes.ProbeFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -49,11 +48,6 @@ public class Trace {
 
     public void logProbe(long probeID) {
         trace.add(probeMap.get(probeID));
-    }
-
-    public void logProbe(long probeID, Exception e) {
-        Probe probe = probeMap.get(probeID);
-        trace.add(ProbeFactory.createExceptionProbe(probe, e));
     }
 
     public List<Probe> getTrace() {

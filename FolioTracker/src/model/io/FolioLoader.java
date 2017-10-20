@@ -1,6 +1,6 @@
-package model;
+package model.io;
 
-import model.Folio;
+import model.folios.*;
 
 import java.io.*;
 import java.util.ArrayList;

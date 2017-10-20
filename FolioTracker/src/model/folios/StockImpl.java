@@ -1,4 +1,7 @@
-package model;
+package model.folios;
+
+import model.io.IQuote;
+import model.io.Quote;
 
 public class StockImpl implements Stock {
 

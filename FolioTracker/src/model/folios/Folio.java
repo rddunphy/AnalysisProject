@@ -1,4 +1,4 @@
-package model;
+package model.folios;
 
 import java.util.List;
 import java.util.Observer;

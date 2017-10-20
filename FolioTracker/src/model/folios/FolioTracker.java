@@ -1,4 +1,8 @@
-package model;
+package model.folios;
+
+import model.io.MethodException;
+import model.io.NoSuchTickerException;
+import model.io.WebsiteDataException;
 
 import java.io.IOException;
 import java.util.List;

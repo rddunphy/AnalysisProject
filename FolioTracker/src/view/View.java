@@ -1,7 +1,7 @@
 package view;
 
-import model.Folio;
-import model.FolioTracker;
+import model.folios.Folio;
+import model.folios.FolioTracker;
 
 public interface View {
 	

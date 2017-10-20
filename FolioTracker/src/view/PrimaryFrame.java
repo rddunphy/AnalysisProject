@@ -10,7 +10,12 @@ import java.util.Observer;
 
 import javax.swing.*;
 
-import model.*;
+import model.folios.Folio;
+import model.folios.FolioTracker;
+import model.folios.Stock;
+import model.io.MethodException;
+import model.io.NoSuchTickerException;
+import model.io.WebsiteDataException;
 
 @SuppressWarnings("serial")
 public class PrimaryFrame extends JFrame implements View, Observer {

@@ -2,7 +2,6 @@ package runtime;
 
 import parser.CODE_UNIT;
 import parser.ProjectStructureNode;
-import probes.BlockEndProbe;
 import probes.Probe;
 
 import java.awt.Point;
@@ -36,19 +35,15 @@ class CoverageCalculator {
     }
 
     private static Map<String, Point> calculateStatementCoverageForMethods(Map<Long, Probe> probes, List<Probe> trace) {
-        Map<BlockEndProbe, Boolean> covered = new HashMap<>();
+        Map<Probe, Boolean> covered = new HashMap<>();
         for (Probe probe : probes.values()) {
-            if (probe instanceof BlockEndProbe) {
-                covered.put((BlockEndProbe) probe, false);
-            }
+            covered.put(probe, false);
         }
         for (Probe probe : trace) {
-            if (probe instanceof BlockEndProbe) {
-                covered.put((BlockEndProbe) probe, true);
-            }
+            covered.put(probe, true);
         }
         Map<String, Point> coveredStatements = new HashMap<>();
-        for (BlockEndProbe probe : covered.keySet()) {
+        for (Probe probe : covered.keySet()) {
             String method = probe.getMethodSignature();
             if (!coveredStatements.containsKey(method)) {
                 coveredStatements.put(method, new Point(0, 0));

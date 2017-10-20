@@ -60,7 +60,7 @@ class ReportPageGenerator {
             coverageDiv = getCoverageDiv(node.getCoverage()).withClass("overviewCoverage");
         }
         ContainerTag header;
-        boolean isRoot = node.getType() == CODE_UNIT.SOURCE_DIR;
+        boolean isRoot = node.getType() == CODE_UNIT.ROOT;
         if (isRoot) {
             header = h2(projectName);
         } else {
@@ -81,6 +81,9 @@ class ReportPageGenerator {
             }
             if (n2.getCoverage() == null && n1.getCoverage() != null) {
                 return -1;
+            }
+            if (n1.getType() != n2.getType()) {
+                return Integer.compare(n1.getType().getDepth(), n2.getType().getDepth());
             }
             return n1.getName().compareTo(n2.getName());
         });

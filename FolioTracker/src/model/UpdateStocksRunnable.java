@@ -1,5 +1,8 @@
 package model;
 
+import model.folios.Folio;
+import model.folios.Stock;
+
 public class UpdateStocksRunnable implements Runnable {
 	
 	private Folio folio;

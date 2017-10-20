@@ -2,10 +2,10 @@ package view;
 
 import java.util.Comparator;
 
-public class FolioTableModelComparator<T> implements Comparator<T> {
+public class FolioTableModelComparator implements Comparator<Object> {
 
 	@Override
-	public int compare(T o1, T o2) {
+	public int compare(Object o1, Object o2) {
 		// For number columns, sort numbers by size, but sort strings
 		// alphabetically.
 		// This is to avoid runtime exception when comparing numbers to

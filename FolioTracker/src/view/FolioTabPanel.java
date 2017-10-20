@@ -24,7 +24,7 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import model.Folio;
+import model.folios.Folio;
 
 @SuppressWarnings("serial")
 public class FolioTabPanel extends JPanel implements Observer {
@@ -79,7 +79,7 @@ public class FolioTabPanel extends JPanel implements Observer {
 		TableRowSorter<TableModel> sorter = new TableRowSorter<>(table.getModel());
 		table.setRowSorter(sorter);
 		for (int col = 0; col < table.getColumnCount(); col++) {
-			sorter.setComparator(col, new FolioTableModelComparator<Object>());
+			sorter.setComparator(col, new FolioTableModelComparator());
 		}
 		List<RowSorter.SortKey> sortKeys = new ArrayList<>();
 		sortKeys.add(new RowSorter.SortKey(0, SortOrder.ASCENDING));

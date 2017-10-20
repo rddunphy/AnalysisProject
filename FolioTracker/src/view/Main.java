@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import ctrlr.PrimaryActionListener;
 import ctrlr.PrimaryWindowListener;
-import model.FolioTracker;
-import model.FolioTrackerImpl;
+import model.folios.FolioTracker;
+import model.folios.FolioTrackerImpl;
 
 public class Main {
 

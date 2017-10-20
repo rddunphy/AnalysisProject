@@ -1,4 +1,4 @@
-package model;
+package model.io;
 
 /** 
  * This class Quote.java retrieves a file from the yahoo webpage, and reads

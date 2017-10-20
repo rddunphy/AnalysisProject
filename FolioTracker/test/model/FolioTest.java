@@ -2,6 +2,7 @@ package model;
 
 import static org.junit.Assert.*;
 
+import model.folios.*;
 import org.junit.Before;
 import org.junit.Test;
 

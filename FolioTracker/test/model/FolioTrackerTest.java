@@ -2,10 +2,13 @@ package model;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import model.folios.*;
+import model.io.MethodException;
+import model.io.NoSuchTickerException;
+import model.io.WebsiteDataException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -85,7 +88,7 @@ public class FolioTrackerTest {
 	@Test
 	public void testGetQuote() throws WebsiteDataException, NoSuchTickerException, MethodException, IOException
 	{
-		Stock stock1 = new StockImpl("EZPW");	
+		Stock stock1 = new StockImpl("EZPW");
 		
 		assertTrue(ft1.getQuote("EZPW").equals(stock1));
 		

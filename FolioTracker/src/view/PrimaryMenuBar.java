@@ -11,7 +11,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
-import model.Folio;
+import model.folios.Folio;
 
 @SuppressWarnings("serial")
 public class PrimaryMenuBar extends JMenuBar implements Observer {

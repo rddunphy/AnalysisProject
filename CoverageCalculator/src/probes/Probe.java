@@ -2,22 +2,12 @@ package probes;
 
 import java.io.Serializable;
 
-public abstract class Probe implements Serializable {
+public interface Probe extends Serializable {
 
-    private final long id;
-    private final String methodSignature;
+    long getId();
 
-    Probe(long id, String methodSignature) {
-        this.id = id;
-        this.methodSignature = methodSignature;
-    }
+    String getMethodSignature();
 
-    public long getId() {
-        return this.id;
-    }
-
-    public String getMethodSignature() {
-        return this.methodSignature;
-    }
+    int getStatementCount();
 
 }
