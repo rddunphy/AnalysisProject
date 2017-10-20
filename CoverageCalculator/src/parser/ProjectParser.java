@@ -6,13 +6,13 @@ import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.AnnotationDeclaration;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
 import com.github.javaparser.ast.comments.Comment;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
-import java.util.Optional;
 
 public class ProjectParser {
 
@@ -46,6 +46,29 @@ public class ProjectParser {
         return sourceFilesTree;
     }
 
+    static String getFullSignature(CompilationUnit cu, String name) {
+        List<String> tokens = new ArrayList<>();
+        TypeDeclaration type = cu.getType(0);
+        EnumSet<Modifier> modifiers = type.getModifiers();
+        for (Modifier modifier : modifiers) {
+            tokens.add(modifier.asString());
+        }
+        if (type instanceof ClassOrInterfaceDeclaration) {
+            if (((ClassOrInterfaceDeclaration) type).isInterface()) {
+                tokens.add("interface");
+            } else {
+                tokens.add("class");
+            }
+        } else if (type instanceof AnnotationDeclaration) {
+            tokens.add("annotation");
+        } else if (type instanceof EnumDeclaration) {
+            tokens.add("enum");
+        }
+        tokens.add(type.getNameAsString());
+        tokens.add(name);
+        return String.join(" ", tokens);
+    }
+
     private void addMethodsToSourceFilesTree() {
         for (ProjectStructureNode node : sourceFilesTree.getAllNodesOfType(CODE_UNIT.CLASS)) {
             try {
@@ -57,42 +80,5 @@ public class ProjectParser {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static String getFullSignature(CompilationUnit cu, String name) {
-        List<String> tokens = new ArrayList<>();
-        Optional<ClassOrInterfaceDeclaration> oClass = cu.getClassByName(name);
-        if (oClass.isPresent()) {
-            tokens.addAll(getModifierTokens(oClass.get().getModifiers()));
-            tokens.add("class");
-        } else {
-            oClass = cu.getInterfaceByName(name);
-            if (oClass.isPresent()) {
-                tokens.addAll(getModifierTokens(oClass.get().getModifiers()));
-                tokens.add("interface");
-            } else {
-                Optional<EnumDeclaration> oEnum = cu.getEnumByName(name);
-                if (oEnum.isPresent()) {
-                    tokens.addAll(getModifierTokens(oEnum.get().getModifiers()));
-                    tokens.add("enum");
-                } else {
-                    Optional<AnnotationDeclaration> oAnn = cu.getAnnotationDeclarationByName(name);
-                    oAnn.ifPresent(annotationDeclaration -> {
-                        tokens.addAll(getModifierTokens(annotationDeclaration.getModifiers()));
-                        tokens.add("annotation");
-                    });
-                }
-            }
-        }
-        tokens.add(name);
-        return String.join(" ", tokens);
-    }
-
-    private static List<String> getModifierTokens(EnumSet<Modifier> modifiers) {
-        List<String> tokens = new ArrayList<>();
-        for (Modifier modifier : modifiers) {
-            tokens.add(modifier.asString());
-        }
-        return tokens;
     }
 }

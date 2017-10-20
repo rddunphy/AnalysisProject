@@ -10,7 +10,7 @@ class DirectoryScanner {
 
     private ProjectStructureNode tree;
 
-    public ProjectStructureNode scan(String root) {
+    ProjectStructureNode scan(String root) {
         this.tree = null;
         File file = new File(root);
         scan("", file, null);

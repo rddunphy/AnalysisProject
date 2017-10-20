@@ -1,0 +1,90 @@
+body {
+    background-color: #f0ffff;
+}
+
+#main {
+    width: 900px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto auto 30px;
+    padding: 25px;
+    border: 1px solid #808080;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+#headerDiv {
+    background-color: #00008b;
+    color: white;
+    padding: 1px 20px 1px;
+}
+
+#timestampDiv {
+    text-align: right;
+    position: absolute;
+    top: 55px;
+    width: 860px;
+}
+
+#overviewDiv {
+    text-align: center;
+}
+
+.overviewCoverage {
+    display: inline-block;
+    text-align: left;
+}
+
+.sectionDiv {
+    border-top: 1px solid #808080;
+}
+
+.modifiers {
+    font-style: italic;
+}
+
+h3 .modifiers {
+    font-style: normal;
+    font-weight: normal;
+}
+
+a {
+    color: #00008b;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4169e1;
+}
+
+.interface {
+    color: #808080;
+}
+
+.interface a {
+    color: #808080;
+}
+
+.interface a:hover {
+    color: #d3d3d3;
+}
+
+.coverageBar {
+    width: 300px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: #ff0000;
+}
+
+.coverageBarGreen {
+    height: 12px;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background-color: #008000;
+}
